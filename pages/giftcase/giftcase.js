@@ -94,21 +94,25 @@ Page({
         lastRequestTime = nowRequestTime
 
         wx.request({
-            url: 'https://www.bizspace.cn/api/wechatweb/v1/images/secret',
+            url: 'https://www.bizspace.cn/api/wechatweb/v1/users/mygift',
             data: {
                 bizid: 'uniwarm', 
-                token: '',
-                // user_id: wx.getStorageSync('userid'),
-                // func: 'secret',
-                page: page, //int。页数，从0开始，每页10条
+                token: wx.getStorageSync('token'),
+                user_id: wx.getStorageSync('userid'),
+                func: 'secret',
+                // page: page, //int。页数，从0开始，每页10条
                 device: '',
                 wechat: ''
             },
-            method: "get", //http请求方法，主要有POST和GET
-            header: {},
+            method: 'POST',
+            header: {
+              "content-type": "application/x-www-form-urlencoded"
+            },
 
             success: (res) => {
-                // console.log('submit success');
+                console.log(res);
+                console.log(wx.getStorageSync('token'))
+                console.log(wx.getStorageSync('userid'))
 
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")

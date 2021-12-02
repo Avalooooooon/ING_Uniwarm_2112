@@ -9,6 +9,10 @@ Page({
     hasUserInfo: false,
 
     userrank: '',
+    userdate: '',
+    year: '',
+    month: '',
+    day: '',
     rawData: '',
     signature: '',
   },
@@ -43,11 +47,17 @@ Page({
       wx.setStorageSync('token', null);
       wx.setStorageSync('userid', null);
       wx.setStorageSync('userrank', null);
+      wx.setStorageSync('year', null);
+      wx.setStorageSync('month', null);
+      wx.setStorageSync('day', null);
     } else if (getApp().globalData.overdue === "false") { //未过期，直接显示
       console.log("false")
       this.setData({
         userInfo: wx.getStorageSync('userInfo'),
         userrank: wx.getStorageSync('userrank'),
+        year: wx.getStorageSync('year'),
+        month: wx.getStorageSync('month'),
+        day: wx.getStorageSync('day'),
         hasUserInfo: true
       })
     }
@@ -108,7 +118,20 @@ Page({
                 wx.setStorageSync('token', res.data.token)
                 that.setData({
                   userrank: res.data.rank,
+                  userdate: res.data.create_time,
                 })
+                var tempdate = that.data.userdate;
+                var tempyear = tempdate.substring(0, 4);
+                var tempmonth = tempdate.substring(5,7);
+                var tempday = tempdate.substring(8, 10);
+                that.setData({
+                  year: tempyear,
+                  month: tempmonth,
+                  day: tempday
+                })
+                wx.setStorageSync('year', that.data.year)
+                wx.setStorageSync('month', that.data.month)
+                wx.setStorageSync('day', that.data.day)
               }
             }
           })

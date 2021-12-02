@@ -57,7 +57,18 @@
 
     margin-bottom: 2vh;
 }
+.memecontent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
+    margin-bottom: 2vh;
+}
+.memecontent button{
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 button {
     background-size: 100% 100%;
 }

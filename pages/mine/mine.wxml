@@ -12,7 +12,7 @@
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       </view>
       <view class="headtext" style="padding-top: 1.5vh; font-size: 15px; color:#666666">{{userInfo.nickName}}</view>
-      <view class="title">
+      <view class="title" style="padding-top: 2.5vh;">
         <view style="font-size: 15px; color:black">
           您是Uniwarm的第</view>
         <view style="font-size: 15px; color:black">
@@ -20,7 +20,22 @@
         <view style="font-size: 15px; color:black">
           位会员</view>
       </view>
-      <view class="headtext" style="padding-top: 1.5vh; font-size: 11px; color:#666666">我们在2021年11月11日相遇</view>
+      <view class="title" style="padding-top: 1.5vh;">
+        <view style="font-size: 15px; color:black">
+          我们在</view>
+        <view style="font-size: 15px; color:black">
+          {{year}}</view>
+        <view style="font-size: 15px; color:black">
+          年</view>
+        <view style="font-size: 15px; color:black">
+          {{month}}</view>
+        <view style="font-size: 15px; color:black">
+          月</view>
+        <view style="font-size: 15px; color:black">
+          {{day}}</view>
+        <view style="font-size: 15px; color:black">
+          日相遇</view>
+      </view>
     </view>
   </view>
 
