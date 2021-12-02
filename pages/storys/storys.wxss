@@ -1,0 +1,73 @@
+/* pages/storys/storys.wxss */
+.body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.modules-wrap {
+    flex-grow: 1;
+    position: relative;
+    margin-bottom: 0vh;
+}
+
+.modules {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .modules-scroll-view {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+    height: 30.5vh;
+    width: 100vw !important;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+  }
+  
+  .doublecard{
+    display: flex;
+    flex-direction: row;
+    height: 31.6vh;
+    
+  }
+  
+  .half{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+    align-content: center;
+  
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+  }
+  
+
+  .interval-col{
+    height: 1.2vh;
+  }
+
+  /* .card:active {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+  } */
+  
+  .modules-scroll-view button {
+    background-size: 100% 100%;
+  }

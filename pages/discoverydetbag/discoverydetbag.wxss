@@ -1,0 +1,75 @@
+/* pages/discoverydetbag/discoverydetbag.wxss */
+.mainimage {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+    height: 41vh;
+    width: 100vw !important;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+.news-scroll-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+    margin-bottom: 4.5vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+.box {
+    margin-bottom: 2vh;
+}
+
+.card {
+    height: 31vh;
+    width:44.5vw !important;  
+    border-radius: 0px;
+    margin: 0px !important;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: white;
+    /* border: 1px solid rgba(128, 100, 30, 0.61); */
+
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /**主轴方向居中**/
+    align-items: flex-end;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+
+    margin-top: 22vh;
+    margin-bottom: 2.5vh;
+    color: #000000;
+    font-size: 14px;
+}
+
+button {
+    /* background-position: top; */
+    background-size: 100% 100%;
+}
+.item{
+    z-index: 100;
+    width: 40vw !important;
+}

@@ -1,0 +1,23 @@
+<!--pages/discoverydethug/discoverydethug.wxml-->
+<scroll-view scroll-y="true" style="background:#F4F6F8">
+    <button class="mainimage" bindtap="tohugorigin" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/product/lovehug_origin.png');">
+    </button>
+    <view class ="title">
+            <view style="padding-right: 10vw; font-size: 10px; color:#666666">
+              -</view>
+            <view style="font-size: 11px; color:#666666">
+              产品展示</view>
+            <view style="padding-left: 10vw; font-size: 10px; color:#666666">
+              -</view>
+    </view>
+    <view class="news-scroll-view" style="background-color: #EFF2F5;">
+        <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+            <view class="box">
+                <button class="card" id="{{itemName.id}}" style="background-image: url('{{itemName.image}}'); background-size: 100%; background-repeat: no-repeat; background-position:center;" bindtap="tosingleinfo">
+                  <!-- <view class="text">{{itemName.name}}</view> -->
+                </button> 
+            </view>
+        </block>
+    </view>
+</scroll-view>
+

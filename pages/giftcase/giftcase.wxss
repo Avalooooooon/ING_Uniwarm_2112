@@ -1,0 +1,148 @@
+/* pages/giftcase/giftcase.wxss */
+/* 导航栏 */
+.swiper-tab {
+    width: 100vw;
+    height: 6vh;
+    text-align: center;
+    line-height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tab-item {
+    padding-top: 1.5vh;
+    flex: 1;
+    font-size: 11px;
+    display: inline-block;
+    color: #777777;
+}
+
+.on {
+    color: black;
+    font-size: 13px;
+}
+
+.swiper {
+    padding-top: 2vh;
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper view {
+    text-align: center;
+    padding-top: 0vh;
+}
+
+/* 爱的密语 专属表情包 */
+.modules-scroll-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 2vh;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    margin-bottom: 2vh;
+}
+
+button {
+    background-size: 100% 100%;
+}
+
+.card {
+    height: 33.333vw;
+    width: 33.333vw !important;
+    border-radius: 0px;
+    margin: 0px !important;
+
+    display: flex;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+}
+
+.lock {
+    z-index: 100;
+    width: 8vw;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+/* 表情包 */
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 3.1vh;
+}
+
+.last {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/* 红包 */
+.usekeybutton {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0vh;
+    border-radius: 50px;
+    border: 1px solid #C99B3A
+}
+
+.redcard {
+    height: 60vh;
+    width: 90vw !important;
+    border-radius: 0px;
+    margin: 0px !important;
+
+    display: flex;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+}
+
+.serialbutton {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0vh;
+    border-radius: 3px;
+    background-color: #C99B3A;
+    /* border: 1px solid #C99B3A */
+}
+
+/* 卡券 */

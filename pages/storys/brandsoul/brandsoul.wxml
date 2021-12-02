@@ -1,0 +1,2 @@
+<!--pages/storys/brandsoul/brandsoul.wxml-->
+<web-view src="https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/story/brand_soul/index.html"></web-view>

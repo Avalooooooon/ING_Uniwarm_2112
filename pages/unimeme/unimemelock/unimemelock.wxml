@@ -1,0 +1,8 @@
+<!--pages/unimeme/unimemelock/unimemelock.wxml-->
+<view class="body">
+    <image class="lockimage" mode="widthFix" src='{{imageurl}}'>
+        <image class="lock" src="../../../img/tounlock.png" mode="widthFix"></image>
+            <view class = "text" style="color: #DFB55C;font-size: 14px;">参与抽奖，解锁更多表情包</view>
+            <button class = "skip" style="border-radius: 3px; background:#DFB55C; color: #FFFFFF; font-size: 15px;" bindtap="todraw">参与抽奖</button>
+    </image>
+</view>

@@ -1,0 +1,128 @@
+/* pages/game/game.wxss */
+.mycontainer {
+  height: 100vh;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.bigtitle{
+  position: fixed;
+  top: 47vh;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  z-index: 99999;
+  
+}
+.cover-view {
+  position: fixed;
+  top: 46vh;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+
+  margin-top: 1.5vh;
+  position: absolute;
+  margin-left: 43vw;
+  margin-right: 43vw;
+  z-index: 99999;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 4vh;
+  margin-left: 3vw;
+
+  position: absolute;
+  z-index: 99999;
+}
+
+.modaltext {
+  margin-top: 3vh;
+  margin-bottom: 9vh;
+  margin-left: 3vw;
+  font-size: 14px;
+  color: black
+}
+
+.item {
+  margin-bottom: 1.5vh;
+}
+
+
+
+.body {
+  position: fixed;
+  top: 69vh;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+.centertitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  position: absolute;
+  z-index: 99999;
+}
+.skip{
+  position: fixed;
+  top: 40vh;
+  width: 70vw;
+  height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  z-index: 999999;
+}
+.buttonbody{
+  left: -3vw;
+  bottom: -2vh;
+  width: 36vw;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 17px;
+  
+  box-shadow: 1vh 1vh 2vh 1vh rgba(20, 19, 19, 0.911);
+  /* z-index: 99999; */
+}
+.eng{
+  font-family:"Times New Roman", Times, serif
+}

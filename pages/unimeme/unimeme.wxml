@@ -1,0 +1,73 @@
+<!--pages/unimeme/unimeme.wxml-->
+<view catchtouchmove="preventTouchMove" class="alert-mask" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+  <view class="bigTitle" style="font-size: 13px; color:#666666">表情下载</view>
+
+  <view class="paragraph">
+    <view class="modaltitle">下载方式一：</view>
+    <view class="modaltext">
+      <view class="item">长按表情图片保存至手机系统相册</view>
+      <view class="item">微信聊天窗中，发送手机系统相册内的动态表情图片</view>
+      <view class="item">长按已发送的表情图片添加至表情</view>
+    </view>
+  </view>
+
+  <view class="paragraph">
+    <view class="modaltitle">下载方式二：</view>
+    <view class="modaltext">
+      <view class="item">长按表情图片保存至手机系统相册</view>
+      <view class="item">点击微信【我】中的标签设置</view>
+      <view class="item">点击右上角设置图标</view>
+      <view class="item">进入“添加的单个标签“选项</view>
+      <view class="item">点击“+”图标添加所属标签</view>
+    </view>
+  </view>
+
+  <image class="hide-btn" bindtap="hideMask" src="../../img/close.png" mode="widthFix"></image>
+</view>
+
+<scroll-view scroll-y="true">
+  <view class="modules-scroll-view">
+    <view class="text">
+      <view style="padding-left: 5.3vw; font-size: 12.4px; color:#666666">
+        点击预览，长按保存</view>
+      <view style="padding-right: 5.3vw; font-size: 12.4px; color:#C99B3A" bindtap="todeclare">
+        使用说明</view>
+    </view>
+
+    <view class="body">
+      <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+        <view class="box">
+          <view class="head">
+            <view class="first" style="width: 30vw;"></view>
+            <view class="title">
+              <view style="padding-right: 3.4vw; font-size: 10px; color:#666666">
+                -</view>
+              <view style="font-size: 10px; color:#666666">
+                {{itemName.se_name}}</view>
+              <view style="padding-left: 3.4vw; font-size: 10px; color:#666666">
+                -</view>
+            </view>
+            <view id="{{itemName.id}}" class="last" style="width: 30vw;" bindtap="toMemedet">
+              <view style="font-size: 10px; color:#C99B3A">
+                更多</view>
+              <view style="padding-left: 1vw; font-size: 10px; color:#C99B3A">
+                ></view>
+              <view style="width:3.4vw"></view>
+            </view>
+          </view>
+
+          <view class="content">
+            <block wx:for-items="{{itemName.show}}" wx:for-item="itemNameshow" wx:for-index="id">
+              <button class="card" id="{{itemName.sub_param.itemid}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}">
+                <image class="lock" wx:if="{{itemNameshow.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
+              </button>
+              <view class="interval"></view>
+            </block>
+          </view>
+
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>

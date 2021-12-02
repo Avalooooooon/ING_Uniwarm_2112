@@ -1,0 +1,143 @@
+/* pages/meme/meme.wxss */
+/* 弹窗蒙版 start */
+.alert-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+.modalDlg {
+  width: 83vw;
+  height: 55vh;
+  position: fixed;
+  top: 45%;
+  left: -1%;
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 25rpx;
+  margin: -370rpx 85rpx;
+  background-color: #fff;
+  border-radius: 0rpx;
+ }
+ .bigTitle{
+  margin-top: 2vh;
+  margin-bottom: 3.5vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .paragraph{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+ }
+ .modaltitle{
+  margin-top: 2vh;
+  margin-bottom: 1.5vh;
+  margin-left: 4vw;
+  font-size: 13px; 
+  color:#333333
+ }
+ .modaltext{
+  margin-top: 2vh;
+  margin-bottom: 3.5vh;
+  margin-left: 4vw;
+  font-size: 12px; 
+  color:#333333
+ }
+ .item{
+   margin-bottom: 1.5px;
+ }
+ .hide-btn {
+  position: absolute;
+  top:1vh;
+  right:1vh;
+  width:2vh;
+ }
+
+.modules-scroll-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4vh;
+  margin-bottom: 7vh;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 3.1vh;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.last {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 4.5vh;
+}
+
+button {
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+image {
+
+
+  width: 40vw;
+}
+
+.interval {
+  width: 0.5vmin;
+}
+
+.card {
+  height: 33vw;
+  width: 33vw;
+
+  display: flex;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+  padding: 0vw;
+}
+.lock{
+  z-index: 100;
+  width: 10vw;
+}

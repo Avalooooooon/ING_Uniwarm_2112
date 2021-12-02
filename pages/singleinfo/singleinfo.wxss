@@ -1,0 +1,138 @@
+/* pages/singleinfo/singleinfo.wxss */
+.mycontainer {
+    height: 49vh !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.modalimage {
+    height: 100vh !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.vol-swiper-item {
+    box-sizing: border-box;
+
+    /* padding-left: 2vw;
+    padding-right: 2vw; */
+
+    height: 49vh !important;
+    background: #fff;
+}
+
+.vol-picture {
+    width: 100%;
+}
+
+.threed {
+    position: absolute;
+    height: 4vh;
+    width: 31vw;
+    top: 39vh;
+    left: 81vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 25px;
+    border: 1px solid #000000;
+    background: rgba(255, 255, 255, 0.781);
+
+    z-index: 999;
+}
+
+.colorbox {
+    width: 4vw;
+    height: 4vw;
+    padding: 0 !important;
+    border-radius: 0px;
+    border: 1px solid #686666c0;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+    margin-top: 3vh;
+    margin-left: 3vw;
+}
+
+.modaltext {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+    margin-left: 3vw;
+    font-size: 14px;
+    color: black
+}
+
+.item {
+    margin-bottom: 0vh;
+}
+
+.body {
+    width: 100vw;
+    height: 30vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.centertitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.news-scroll-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 4.5vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+.box {
+    margin-bottom: 2vh;
+}
+
+.card {
+    height: 27vh;
+    width: 44vw !important;
+    border-radius: 0px;
+    margin: 0px !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: white;
+    border: 1px solid rgba(128, 100, 30, 0.61);
+
+}

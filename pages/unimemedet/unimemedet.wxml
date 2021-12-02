@@ -1,0 +1,34 @@
+<!--pages/unimemedet/unimemedet.wxml-->
+<!--pages/meme/meme.wxml-->
+<scroll-view scroll-y="true">
+  <view class="modules-scroll-view">
+    <view class="body">
+      <!-- <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id"> -->
+      <view class="box">
+        <view class="head">
+          <view class="title">
+            <view style="padding-right: 3.4vw; font-size: 11px; color:#666666">
+              -</view>
+            <view style="font-size: 11px; color:#666666">
+              {{title}}</view>
+            <view style="padding-left: 3.4vw; font-size: 11px; color:#666666">
+              -</view>
+          </view>
+        </view>
+
+        <view class="content">
+          <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+            <button class="card" id="{{itemName.image}}" bindtap="preview"
+              style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemName.image}}">
+              <image class="lock" wx:if="{{itemName.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix">
+              </image>
+            </button>
+            <view class="interval"></view>
+          </block>
+        </view>
+
+      </view>
+      <!-- </block> -->
+    </view>
+  </view>
+</scroll-view>

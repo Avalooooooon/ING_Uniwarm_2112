@@ -1,0 +1,45 @@
+/* pages/index/goodmoring/goodmoring.wxss */
+.news {
+    widows: 100%;
+}
+
+.news-scroll-view{
+    display: flex;
+    flex-direction: column;
+}
+
+.box{
+    margin-top: 1.9vh;
+    margin-left: 5.2vw;
+    margin-right: 5.5vw;
+}
+.card {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+
+    height: 30.9vh;
+    width: 89.3vw !important; 
+    border-radius: 1.3px;
+    
+}
+.text{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    /**主轴方向居中**/
+    align-items: center;
+    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    color: #333333;
+    font-size: 14px;
+}
+button {
+    background-size: 100% 100%;
+}
+

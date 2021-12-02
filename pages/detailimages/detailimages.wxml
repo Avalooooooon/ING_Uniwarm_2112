@@ -1,0 +1,57 @@
+<!--pages/detailimages/detailimages.wxml-->
+<scroll-view scroll-y="true">
+
+  <swiper class="mycontainer" indicator-dots="{{indicatordots}}" duration="{{duration}}" bindchange='onSlideChange'>
+    <!-- <block wx:for-items="{{skulist.image}}" wx:for-item="itemName" wx:for-index="id"> -->
+    <block wx:for-items="{{swiperimage}}" wx:for-item="itemName" wx:for-index="id">
+    <swiper-item class="vol-swiper-item">
+      <image class="vol-picture" src="{{itemName}}" mode="widthFix"></image>
+    </swiper-item>
+    <swiper-item class="vol-swiper-item">
+      <image class="vol-picture" src="{{itemName}}" mode="widthFix"></image>
+    </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="title">
+    <view style="padding-right: 8vw; font-size: 10px; color:#666666">
+      -</view>
+    <view style="font-size: 11px; color:#666666">
+      商品详情</view>
+    <view style="padding-left: 8vw; font-size: 10px; color:#666666">
+      -</view>
+  </view>
+
+  <view class="content">
+    <view class="modaltext">
+      <view class="item">size：</view>
+      <view class="item">{{detailinfo.size}}</view>
+    </view>
+    <view class="modaltext">
+      <view class="item">origin：</view>
+      <view class="item">{{detailinfo.origin}}</view>
+    </view>
+  </view>
+
+  <view class="more">
+    <view class="title">
+      <view style="padding-right: 8vw; font-size: 10px; color:#666666">
+        -</view>
+      <view style="font-size: 11px; color:#666666">
+        更多产品</view>
+      <view style="padding-left: 8vw; font-size: 10px; color:#666666">
+        -</view>
+    </view>
+    <view class="news-scroll-view">
+      <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+        <view class="box">
+          <button class="card" id="{{itemName.id}}"
+            style="background-image: url('{{itemName.image}}'); background-size: 80% 80%; background-repeat: no-repeat; background-position:center;"
+            bindtap="todetailimages">
+            <!-- <view class="text">{{itemName.title}}</view> -->
+          </button>
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>

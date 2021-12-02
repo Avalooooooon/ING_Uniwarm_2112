@@ -1,0 +1,13 @@
+<!--pages/index/goodmoring/goodmoring.wxml-->
+
+<scroll-view class="news" scroll-y="true">
+    <view class="news-scroll-view">
+        <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+            <view class="box">
+                <button class="card" id="{{itemName.sub_param.itemid}}" style="background-image: url('{{itemName.image}}');" bindtap="toNewsdet">
+                </button>
+                <view class="text">{{itemName.name}}</view>
+            </view>
+        </block>
+    </view>
+</scroll-view>

@@ -1,0 +1,26 @@
+<!--pages/wallpaper/wallpaper.wxml-->
+<swiper class="mycontainer" vertical="{{vertical}}" indicator-dots="{{indicatordots}}" duration="{{duration}}"
+    bindchange='onSlideChange'>
+    <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+        <swiper-item class="vol-swiper-item">
+            <scroll-view class="scroll" scroll-y style="height: {{scrollYHeight}}px" lower-threshold="30"
+                bindscroll="bindscroll" scroll-top="{{scrollTop}}">
+                <!-- bindscrolltolower="onbindscrolltolower" -->
+                <view class="vol-card">
+                    <image class="vol-picture" src="https://www.bizspace.cn{{itemName.image}}" mode="widthFix"
+                        bindlongpress="saveimage"></image>
+                    <!-- <view>{{tag}}</view>
+                    <view>{{num}}</view> -->
+                        <!-- <block wx:if="{{!(((itemName.id!=1)&&(itemName.id!=3)&&(postid+1)%4==0)&&hasMore==true&&tag[num]==1)}}">
+                            <loading style="display: none;"></loading>
+                        </block> -->
+
+                    <loading visible="{{(((itemName.id!=1)&&(itemName.id!=2)&&(postid+1)%3==0)&&hasMore==true&&tag[num]==1)}}"></loading>
+                    <view hidden="{{tag[5]!=1}}">到底了～</view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </block>
+</swiper>
+
+

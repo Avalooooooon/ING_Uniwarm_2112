@@ -1,0 +1,104 @@
+<!--pages/singleinfo/singleinfo.wxml-->
+<scroll-view scroll-y="true">
+    <!--单品图-->
+    <swiper class="mycontainer" indicator-dots="{{indicatordots}}" duration="{{duration}}">
+      <block wx:for-items="{{swiperimage}}" wx:for-item="itemName" wx:for-index="id">
+        <swiper-item class="vol-swiper-item">
+          <image class="vol-picture" src="{{itemName}}" mode="widthFix">
+          </image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="threed" bindtap="tosinglethreed">
+      <view style="padding-right:9vw; font-size: 15px; font-weight: bold; color:#000000">
+        3D效果</view>
+    </view>
+
+  <view class="title">
+    <block wx:for-items="{{skulist}}" wx:for-item="itemName" wx:for-index="id">
+      <view style="width:1vw"></view>
+      <view class="colorbox" id="{{itemName.sku_id}}" bindtap="toanothercolor"
+        style="background: {{itemName.d_attr.color}};">
+      </view>
+      <view style="width:1vw"></view>
+    </block>
+  </view>
+
+  <view class="title">
+    <view style="font-size: 15px; color:#666666">
+      {{name}}</view>
+  </view>
+
+  <view class="content">
+    <view class="modaltext">
+      <view class="item">尺码：</view>
+      <view class="item">{{detailinfo.size}}</view>
+    </view>
+    <view class="modaltext">
+      <view class="item">产地：</view>
+      <view class="item">{{detailinfo.origin}}</view>
+    </view>
+  </view>
+
+  <view class="body">
+    <view class="centertitle">
+      <view style="margin-bottom: 4vh; font-size: 24px; font-weight: 900; color:black">
+        EZ Bag系列</view>
+      <view style="margin-bottom:7vh; font-size: 16px; color:black">
+        {{name}}</view>
+      <view style="font-size: 16px; color:black;">
+        Always accompany and protect you with love</view>
+    </view>
+  </view>
+
+<!--上身图-->
+  <scroll-view class="modelimage" scroll-y="true">
+    <block wx:for-items="{{modelimage}}" wx:for-item="itemName" wx:for-index="id">
+      <image class="vol-picture" src="{{itemName.image}}" mode="widthFix">
+      </image>
+    </block>
+  </scroll-view>
+<!--细节图-->
+<view class="title">
+  <view style="padding-right: 8vw; font-size: 10px; color:#666666">
+    -</view>
+  <view style="font-size: 11px; color:#666666">
+    商品详情</view>
+  <view style="padding-left: 8vw; font-size: 10px; color:#666666">
+    -</view>
+</view>
+
+<view class="content">
+  <view class="modaltext">
+    <view class="item">size：</view>
+    <view class="item">{{detailinfo.size}}</view>
+  </view>
+  <view class="modaltext">
+    <view class="item">origin：</view>
+    <view class="item">{{detailinfo.origin}}</view>
+  </view>
+</view>
+
+<view class="more">
+  <view class="title">
+    <view style="padding-right: 8vw; font-size: 10px; color:#666666">
+      -</view>
+    <view style="font-size: 11px; color:#666666">
+      更多产品</view>
+    <view style="padding-left: 8vw; font-size: 10px; color:#666666">
+      -</view>
+  </view>
+  <view class="news-scroll-view">
+    <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+      <view class="box">
+        <button class="card" id="{{itemName.sku_id}}"
+          style="background-image: url('{{itemName.image}}'); background-size: 80% 80%; background-repeat: no-repeat; background-position:center;"
+          bindtap="tonewsinglepage">
+          <!-- <view class="text">{{itemName.title}}</view> -->
+        </button>
+      </view>
+    </block>
+  </view>
+</view>
+
+</scroll-view>

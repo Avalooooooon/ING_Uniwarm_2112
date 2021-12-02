@@ -1,0 +1,24 @@
+<!--pages/storys/storys.wxml-->
+<view class="body">
+
+<view class="modules-wrap">
+  <scroll-view class="modules" scroll-y="true">
+    <view class="modules-scroll-view">
+      <button class="card" bindtap="toBrandvideo" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/story/video.png');">
+      品牌宣传片</button>
+      <view class="interval-col"></view>
+
+      <button class="card" bindtap="toBrandstory" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/story/story.png');">
+      品牌故事</button>
+      <view class="interval-col"></view>
+
+      <button class="card" bindtap="toBrandsoul" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/story/soul.png');">
+      品牌灵魂</button>
+      
+      <view style="height: 15.9vh;"></view>
+
+    </view>
+  </scroll-view>
+</view>
+
+</view>

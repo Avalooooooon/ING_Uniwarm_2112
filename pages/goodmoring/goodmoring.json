@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loading": "/components/Loading/loading"
+  },
+  "navigationBarTitleText":  "早安·晚安"
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loading": "/components/commonLoading/commonloading"
+  },
+
+  "navigationBarTitleText":  "Uniwarm表情包"
+}

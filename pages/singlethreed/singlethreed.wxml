@@ -1,0 +1,49 @@
+<!--pages/singlethreed/singlethreed.wxml-->
+<web-view src="{{threedurl}}">
+  <cover-view class="title">
+    <block class="title" wx:for-items="{{skulist}}" wx:for-item="itemName" wx:for-index="id">
+      <cover-view style="width:1vw"></cover-view>
+      <cover-view class="colorbox" id="{{itemName.sku_id}}" bindtap="toanothercolor"
+        style="background: {{itemName.d_attr.color}};">
+      </cover-view>
+      <cover-view style="width:1vw"></cover-view>
+    </block>
+  </cover-view>
+  
+  <cover-view class="title2">
+    <cover-view style="font-size: 15px; color:#666666">
+      {{name}}</cover-view>
+  </cover-view>
+
+  <cover-view class="cover-view">
+    <cover-view class="content">
+      <cover-view class="modaltext">
+        <cover-view class="item">尺码：</cover-view>
+        <cover-view class="item">{{detailinfo.size}}</cover-view>
+      </cover-view>
+      <cover-view class="modaltext">
+        <cover-view class="item">产地：</cover-view>
+        <cover-view class="item">{{detailinfo.origin}}</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+
+  <cover-view class="body">
+    <cover-view class="centertitle">
+      <cover-view style="margin-bottom: 4vh; font-size: 24px; font-weight: 900; color:black">
+        EZ Bag系列</cover-view>
+      <cover-view style="margin-bottom:7vh; font-size: 16px; color:black">
+        {{name}}</cover-view>
+      <cover-view style="font-size: 16px; color:black;">
+        Always accompany and protect you with love</cover-view>
+    </cover-view>
+  </cover-view>
+
+  <!-- <cover-view class="skip" bindtap="todetailimages">
+    <cover-view class="buttonbody" style="background: white;">
+      <cover-view style="padding-left:10vw; padding-bottom:1vh; font-size: 12px; color:#666666">模特展示</cover-view>
+      <cover-view style="padding-left:3vw; padding-bottom:1vh; padding-right:7vw; font-size: 12px; color:#666666">>></cover-view>
+    </cover-view>
+  </cover-view> -->
+
+</web-view>

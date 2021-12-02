@@ -1,0 +1,2 @@
+<!--pages/toapp/toapp.wxml-->
+<web-view src="https://www.bizspace.cn/biz_download/deltax/download.html"></web-view>

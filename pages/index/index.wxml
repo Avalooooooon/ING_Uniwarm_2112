@@ -1,0 +1,60 @@
+<view class="body">
+
+
+  <view class="modules-wrap">
+    <scroll-view class="modules" scroll-y="true">
+      <view class="modules-scroll-view">
+        <button class="card,video" bindtap="toStorys" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/story.png');">
+        Uniwarm故事</button>
+        <view class="interval-col"></view>
+
+        <button class="card,shop" bindtap="toDiscovery" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/product.png');">
+        产品发现</button>
+        <view class="interval-col"></view>
+
+        <button class="card" bindtap="toGoodmoring" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/hello.png');">
+        早安晚安</button>
+        <view class="interval-col"></view>
+
+        <button class="card" bindtap="toSecret" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/secret.png');">
+        爱的密语</button>
+        <view class="interval-col"></view>
+        
+        <view class="doublecard">
+          <button class="half" bindtap="toMeme" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/sticker.png');">
+          普通表情包</button>
+          <view class="interval-row"></view>
+          <button class="half" bindtap="toUnimeme" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/lele.png');">
+          专属表情包</button>
+        </view>
+        <view class="interval-col"></view>
+
+        <button class="card" bindtap="togame" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/game.png');">
+        游戏</button>
+        <view class="interval-col"></view>
+
+        <view class="doublecard">
+          <button class="half" bindtap="towallpaper" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/wallpaper.png');">
+          壁纸</button>
+          <view class="interval-row"></view>
+          <button class="half" bindtap="toredbag" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/redpacket.png');">
+          红包封面</button>
+        </view>
+
+        <view class="interval-col"></view>
+        <button class="card" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/news.png');" bindtap="toNews">
+        资讯</button>
+        <view style="height: 15.9vh;"></view>
+
+      </view>
+    </scroll-view>
+  </view>
+
+  <!---
+  <view class="guide-view">
+    <button class="guide" bindtap="toTop" style="color: rgb(228, 145, 145);">首页</button>
+    <button class="guide" bindtap="toMine">我的</button>
+  </view>
+  -->
+
+</view>

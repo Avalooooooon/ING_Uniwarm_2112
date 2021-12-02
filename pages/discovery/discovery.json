@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loading": "/components/commonLoading/commonloading"
+  },
+  "navigationBarTitleText": "产品发现"
+  
+}

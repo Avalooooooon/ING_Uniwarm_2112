@@ -1,0 +1,38 @@
+.news-scroll-view{
+  display: flex;
+  flex-direction: column;
+}
+
+.box{
+  margin-top: 1.9vh;
+}
+.card {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+
+  height: 41vh;
+  width: 100vw !important; 
+  border-radius: 0px;
+  
+}
+.text{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  color:#FFFFFF;
+  font-size: 19px;
+}
+button {
+  background-size: 100% 100%;
+}
+

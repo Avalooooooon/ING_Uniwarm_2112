@@ -1,0 +1,149 @@
+/* pages/singlethreed/singlethreed.wxss */
+.mycontainer {
+  height: 100vh;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.cover-view {
+  position: fixed;
+  top: 54.5vh;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+}
+
+.title {
+  position: fixed;
+  top: 47vh;
+  width: 100vw;
+  height: 4vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+
+  z-index: 1000000;
+}
+
+.colorbox {
+  width: 4vw !important;
+  height: 4vw !important;
+  padding: 0 !important;
+  border-radius: 0px;
+  border: 1px solid #686666c0;
+
+  /* position: absolute; */
+  z-index: 1000000;
+}
+.title2 {
+  position: fixed;
+  top: 51.5vh;
+  width: 100vw;
+  height: 4vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+
+  z-index: 1000000;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 4vh;
+  margin-left: 3vw;
+
+  position: absolute;
+  z-index: 99999;
+}
+
+.modaltext {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin-top: 0vh;
+  margin-bottom: 1vh;
+  margin-left: 3vw;
+  font-size: 14px;
+  color: black
+}
+
+.item {
+  margin-bottom: 0vh;
+}
+
+.body {
+  position: fixed;
+  top: 69vh;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+.centertitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  position: absolute;
+  z-index: 99999;
+}
+
+.skip {
+  position: fixed;
+  top: 80vh;
+  width: 70vw;
+  height: 20vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  z-index: 999999;
+}
+
+.buttonbody {
+  left: -3vw;
+  bottom: -2vh;
+  width: 36vw;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 17px;
+
+  box-shadow: 1vh 1vh 2vh 1vh rgba(20, 19, 19, 0.911);
+  /* z-index: 99999; */
+}
+
+.eng {
+  font-family: "Times New Roman", Times, serif
+}

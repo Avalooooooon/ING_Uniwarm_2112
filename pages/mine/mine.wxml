@@ -1,0 +1,57 @@
+<view class="body">
+
+  <view class="head">
+    <!-- 未授权 -->
+    <view wx:if="{{!hasUserInfo}}" class="result">
+      <button bindtap="getUserProfile">请登录</button>
+    </view>
+
+    <!-- 已授权 -->
+    <view wx:else class="result">
+      <view class="headimg">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="headtext" style="padding-top: 1.5vh; font-size: 15px; color:#666666">{{userInfo.nickName}}</view>
+      <view class="title">
+        <view style="font-size: 15px; color:black">
+          您是Uniwarm的第</view>
+        <view style="font-size: 15px; color:black">
+          {{userrank}}</view>
+        <view style="font-size: 15px; color:black">
+          位会员</view>
+      </view>
+      <view class="headtext" style="padding-top: 1.5vh; font-size: 11px; color:#666666">我们在2021年11月11日相遇</view>
+    </view>
+  </view>
+
+  <button class="mainimage" bindtap="toGiftcase" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/mine/mycollect.png');">
+  </button>
+  <view class="options" style="padding-top: 1vh;">
+    <!-- <view class="list" style="padding-top: 2vh;">
+      <view style="padding-left: 4vw; font-size: 14px; color:#000000">账号设置</view>
+      <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
+    </view>
+    <view class="line" style="padding-left: 4vw; font-size: 15px; color:#EAECEE">
+      ——————————————————————————————————————————————————————————</view> -->
+
+    <view class="list" style="padding-top: 2vh;" bindtap="toseviceitems">
+      <view style="padding-left: 4vw; font-size: 14px; color:#000000">服务条款</view>
+      <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
+    </view>
+    <view class="line" style="padding-left: 4vw; font-size: 15px; color:#EAECEE">
+      ——————————————————————————————————————————————————————————</view>
+
+    <view class="list" bindtap="topersonalitems">
+      <view style="padding-left: 4vw; font-size: 14px; color:#000000">隐私策略</view>
+      <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
+    </view>
+    <view class="line" style="padding-left: 4vw; font-size: 15px; color:#EAECEE">
+      ——————————————————————————————————————————————————————————</view>
+
+    <view class="list" bindtap="toApp">
+      <view style="padding-left: 4vw; font-size: 14px; color:#000000">更多功能（APP）</view>
+      <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
+    </view>
+
+  </view>
+</view>

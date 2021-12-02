@@ -1,0 +1,102 @@
+.mycontainer {
+    height: 45vh !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.vol-swiper-item{
+    box-sizing: border-box;
+
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+    height: 45vh !important;
+    background: #fff;
+}
+.vol-picture {
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+    margin-top: 3vh;
+    margin-left: 3vw;
+}
+
+.modaltext {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+    margin-left: 3vw;
+    font-size: 14px;
+    color: black
+}
+
+.item {
+    margin-bottom: 0vh;
+}
+
+
+.news-scroll-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 4.5vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+.box {
+    margin-bottom: 2vh;
+}
+
+.card {
+    height: 27vh;
+    width: 44vw !important;
+    border-radius: 0px;
+    margin: 0px !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: white;
+    border: 1px solid rgba(128, 100, 30, 0.61);
+
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    margin-top: 22vh;
+    margin-bottom: 2.5vh;
+    color: #000000;
+    font-size: 14px;
+}
+
+.eng {
+    font-family: "Times New Roman", Times, serif;
+}

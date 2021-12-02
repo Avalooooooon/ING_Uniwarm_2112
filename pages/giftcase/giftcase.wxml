@@ -1,0 +1,168 @@
+<!--pages/giftcase/giftcase.wxml-->
+<view class="swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">爱的密语</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">专属表情包</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">红包</view>
+    <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">卡劵</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper" duration="300" style="height:95vh" bindchange="bindChange">
+    <swiper-item>
+        <scroll-view scroll-y="true" style="height:{{scrollYHeight-45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+            <view style="padding-top: 2vh;"></view>
+            <view class="modules-scroll-view">
+                <!-- <view class="title">
+                    <view style="padding-right: 10vw; font-size: 10px; color:#666666">
+                        -</view>
+                    <view style="font-size: 11px; color:#666666">
+                        爱的密语系列</view>
+                    <view style="padding-left: 10vw; font-size: 10px; color:#666666">
+                        -</view>
+                </view> -->
+                <!-- 原字号：8 8 8 9 9 -->
+                <view class="title">
+                    <view style="font-size: 11px; color:#777777"> 
+                        还有</view>
+                    <view style="font-size: 11px; color:#777777">
+                        2</view>
+                    <view style="padding-right: 5vw; font-size: 11px; color:#777777">
+                        个未解锁</view>
+                    <view style="font-size: 12px; color:#C99B3A" bindtap="tosecret">
+                        查看更多</view>
+                    <view style="padding-left: 1vw; font-size: 12px; color:#C99B3A">
+                        ></view>
+                </view>
+
+                <view class="content">
+                    <block wx:for-items="{{showdatalove}}" wx:for-item="itemName" wx:for-index="id">
+                        <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
+                            <image class="lock" wx:if="{{itemName.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
+                        </button>
+                    </block>
+                </view>
+                <loading visible="{{hasMore}}"></loading>
+
+            </view>
+        </scroll-view>
+    </swiper-item>
+
+    <swiper-item>
+        <scroll-view scroll-y="true" style="height:{{scrollYHeight-45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+            <view style="padding-top: 2vh;"></view>
+            <view class="modules-scroll-view">
+                <view class="title">
+                    <view style="font-size: 11px; color:#777777">
+                        还有</view>
+                    <view style="font-size: 11px; color:#777777">
+                        2</view>
+                    <view style="padding-right: 5vw; font-size: 11px; color:#777777">
+                        个未解锁</view>
+                    <view style="font-size: 12px; color:#C99B3A" bindtap="tounimeme">
+                        查看全部</view>
+                    <view style="padding-left: 1vw; font-size: 12px; color:#C99B3A">
+                        ></view>
+                </view>
+
+                <!-- <view class="content">
+                    <block wx:for-items="{{showdatalove}}" wx:for-item="itemName" wx:for-index="id">
+                        <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
+                            <image class="lock" wx:if="{{itemName.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
+                        </button>
+                    </block>
+                </view> -->
+                <view class="body">
+                    <block wx:for-items="{{showdatameme}}" wx:for-item="itemName" wx:for-index="id">
+                        <view class="box">
+                            <!-- <view class="head">
+                                <view class="first" style="width: 30vw;"></view>
+                                <view class="title">
+                                    <view style="padding-right: 3.4vw; font-size: 10px; color:#666666">
+                                        -</view>
+                                    <view style="font-size: 10px; color:#666666">
+                                        {{itemName.se_name}}</view>
+                                    <view style="padding-left: 3.4vw; font-size: 10px; color:#666666">
+                                        -</view>
+                                </view>
+                                <view id="{{itemName.id}}" class="last" style="width: 30vw;" bindtap="toMemedet">
+                                    <view style="font-size: 10px; color:#C99B3A">
+                                        更多</view>
+                                    <view style="padding-left: 1vw; font-size: 10px; color:#C99B3A">
+                                        ></view>
+                                    <view style="width:3.4vw"></view>
+                                </view>
+                            </view> -->
+
+                            <view class="content">
+                                <block wx:for-items="{{itemName.show}}" wx:for-item="itemNameshow" wx:for-index="id">
+                                    <button class="card" id="{{itemName.sub_param.itemid}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}">
+                                        <image class="lock" wx:if="{{itemNameshow.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
+                                    </button>
+                                    <view class="interval"></view>
+                                </block>
+                            </view>
+
+                        </view>
+                    </block>
+                </view>
+
+            </view>
+        </scroll-view>
+    </swiper-item>
+
+    <swiper-item>
+        <scroll-view scroll-y="true" style="height:{{scrollYHeight- 45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+            <view style="padding-top:2vh;"></view>
+            <view class="modules-scroll-view">
+                <view class="title">
+                    <button class="usekeybutton">
+                        <view style="padding-right: 1vw; font-size: 12px; color:#C99B3A">
+                            钥匙*</view>
+                        <view style="font-size: 12px; color:#C99B3A">
+                            1</view>
+                        <view style="padding-left: 2vw; font-size: 10px; color:#C99B3A">
+                            消耗钥匙领取红包</view>
+                    </button>
+                </view>
+                <view class="title">
+                    <view style="padding-right: 10vw; font-size: 10px; color:#666666">
+                        -</view>
+                    <view style="font-size: 11px; color:#666666">
+                        EZ BAG系列</view>
+                    <view style="padding-left: 10vw; font-size: 10px; color:#666666">
+                        -</view>
+                </view>
+
+                <!-- <view class="content">
+                    <block wx:for-items="{{showdatalove}}" wx:for-item="itemName" wx:for-index="id">
+                        <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
+                            <image class="lock" wx:if="{{itemName.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
+                        </button>
+                    </block>
+                </view> -->
+
+                <view class="title">
+                    <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/ht.jpg); background-size: 100% 100%;" bindtap="preview">
+                    </button>
+                </view>
+
+                <view class="title">
+                    <button class="serialbutton" bindtap="toserial">
+                        <view style="font-size: 12px; color:white">
+                            查看序列号</view>
+                    </button>
+                </view>
+
+            </view>
+        </scroll-view>
+    </swiper-item>
+
+    <swiper-item>
+        <view class="body" style="height: 94vh;">
+            <image src="../../img/kaquan.png" style="width: 40vw; margin-top:30vh; margin-bottom: 2vh; border: 1px dashed black;" mode="widthFix"></image>
+            <view style="color:#B0B0B0">暂未获得该礼品哦～</view>
+        </view>
+    </swiper-item>
+
+
+
+</swiper>

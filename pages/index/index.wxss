@@ -1,0 +1,106 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.modules-wrap {
+  flex-grow: 1;
+  position: relative;
+  margin-bottom: 0vh;
+}
+
+.modules {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modules-scroll-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+  height: 31.6vh;
+  width: 100vw !important;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.doublecard{
+  display: flex;
+  flex-direction: row;
+  height: 31.6vh;
+  
+}
+
+.half{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+  align-content: center;
+
+  border-radius: 0;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.interval-row{
+  width: 3.9vw;
+}
+
+.interval-col{
+  height: 2.2vh;
+}
+
+/* .card:active {
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
+} */
+
+.modules-scroll-view button {
+  background-size: 100% 100%;
+  /**background-image: url('https://z3.ax1x.com/2021/09/22/4NLBxf.jpg');**/
+  /**background-repeat: no-repeat;**/
+}
+
+
+.guide-view {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 7vh;
+  border-top: 0.1vh;
+  box-shadow: 0vh 1vh 2vh 0.1vh rgba(17, 16, 16);
+
+}
+
+.guide {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+  color: rgb(175, 17, 17);
+  font-size: 9px;
+  border-radius: 0;
+  /*background:none;
+  /*width: 50vw !important;
+  text-align: center*/
+}

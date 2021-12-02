@@ -1,0 +1,9 @@
+/* pages/redbag/redbag.wxss */
+.body{
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

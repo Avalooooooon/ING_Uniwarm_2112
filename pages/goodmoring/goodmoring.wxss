@@ -1,0 +1,28 @@
+/* pages/goodmoring/goodmoring.wxss */
+.mycontainer {
+    height: 100vh;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .vol-swiper-item {
+    box-sizing: border-box;
+  }
+  .scroll{
+    padding-top: 2vh;
+  }
+  .vol-card {
+    /*parent layout  and  this inner padding*/
+    /* padding-top: 2vh;  */
+    /* margin-top: 2vh; */
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+    height: 100vh;
+    background: #fff;
+  }
+  /* .vol-swiper {
+    height: 100%;
+  } */
+  .vol-picture {
+    width: 100%;
+  }
