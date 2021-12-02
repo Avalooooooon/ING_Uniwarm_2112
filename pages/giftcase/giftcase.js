@@ -22,6 +22,7 @@ Page({
         imglist: [],
 
         // 表情包
+        memeimglist: null,
         showdatameme: {},
         // 红包
 
@@ -66,24 +67,24 @@ Page({
         var newstring = urlarr.join("_lock.")
         return newstring;
     },
-    preview: function (e) {
-        let currentUrl = e.currentTarget.id
-        let tmpi = this.data.showdatalove.findIndex(o => o.image == currentUrl)
-        if (this.data.showdatalove[tmpi].locked === 'no') {
-            wx.previewImage({
-                current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
-                urls: this.data.imglist, // 需要预览的图片http链接列表
-                //showmenu:true
-            })
-        } else {
-            var app = getApp(); //获取全局对象
-            var lockurl = this.data.showdatalove[tmpi].image;
-            app.requestlockurl = 'http://www.bizspace.cn:8690' + lockurl; // 设置全局的请求访问时传递的参数
-            wx.navigateTo({
-                url: '/pages/secret/secretlock/secretlock',
-            })
-        }
-    },
+    // preview: function (e) {
+    //     let currentUrl = e.currentTarget.id
+    //     let tmpi = this.data.showdatalove.findIndex(o => o.image == currentUrl)
+    //     if (this.data.showdatalove[tmpi].locked === 'no') {
+    //         wx.previewImage({
+    //             current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
+    //             urls: this.data.imglist, // 需要预览的图片http链接列表
+    //             //showmenu:true
+    //         })
+    //     } else {
+    //         var app = getApp(); //获取全局对象
+    //         var lockurl = this.data.showdatalove[tmpi].image;
+    //         app.requestlockurl = 'http://www.bizspace.cn:8690' + lockurl; // 设置全局的请求访问时传递的参数
+    //         wx.navigateTo({
+    //             url: '/pages/secret/secretlock/secretlock',
+    //         })
+    //     }
+    // },
     fetchList: function (page, cb) {
         let nowRequestTime = (new Date()).getTime();
         //限制两次网络请求间隔至少1秒
@@ -96,7 +97,7 @@ Page({
         wx.request({
             url: 'https://www.bizspace.cn/api/wechatweb/v1/users/mygift',
             data: {
-                bizid: 'uniwarm', 
+                bizid: 'uniwarm',
                 token: wx.getStorageSync('token'),
                 user_id: wx.getStorageSync('userid'),
                 func: 'secret',
@@ -106,7 +107,7 @@ Page({
             },
             method: 'POST',
             header: {
-              "content-type": "application/x-www-form-urlencoded"
+                "content-type": "application/x-www-form-urlencoded"
             },
 
             success: (res) => {
@@ -191,7 +192,7 @@ Page({
         })
     },
     // 红包
-    toserial:function(){
+    toserial: function () {
         wx.navigateTo({
             url: '/pages/unimeme/unimeme',
         })
@@ -234,19 +235,23 @@ Page({
         // 专属表情包
         var that = this
         wx.request({
-            url: 'https://www.bizspace.cn/api/wechatweb/v1/images/lele_series',
+            url: 'https://www.bizspace.cn/api/wechatweb/v1/users/mygift',
             data: {
-                token: '',
-                bizid: 'uniwarm', //string。企业id, 固定为uniwarm
+                bizid: 'uniwarm',
+                token: wx.getStorageSync('token'),
+                user_id: wx.getStorageSync('userid'),
+                func: 'lele',
+                // page: page, //int。页数，从0开始，每页10条
                 device: '',
                 wechat: ''
             },
-            method: "get", //http请求方法，主要有POST和GET
-            header: {},
-
+            method: 'POST',
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
             success: function (res) {
+                console.log(res)
                 console.log('submit success');
-
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
@@ -266,8 +271,79 @@ Page({
             }
         })
         // 红包
-        
+        wx.request({
+            url: 'https://www.bizspace.cn/api/wechatweb/v1/users/mygift',
+            data: {
+                bizid: 'uniwarm',
+                token: wx.getStorageSync('token'),
+                user_id: wx.getStorageSync('userid'),
+                func: 'redpacket',
+                // page: page, //int。页数，从0开始，每页10条
+                device: '',
+                wechat: ''
+            },
+            method: 'POST',
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+                console.log(res)
+                console.log('submit success');
+                if (res.data.res != 0) {
+                    console.log("服务器返回请求不成功，出现某种问题，需要处理")
+                } else if (res.data.res == 0) {
+                    console.log("服务器返回请求成功")
+                    that.setData({
+                        showdatameme: res.data.data
+                    })
+                    console.log(that.data.showdatameme)
+                }
+
+            },
+            fail: function (res) {
+                console.log('submit fail'); //API请求失败
+            },
+            complete: function (res) {
+                console.log('submit complete');
+            }
+        })
         //卡券
+        wx.request({
+            url: 'https://www.bizspace.cn/api/wechatweb/v1/users/mygift',
+            data: {
+                bizid: 'uniwarm',
+                token: wx.getStorageSync('token'),
+                user_id: wx.getStorageSync('userid'),
+                func: 'ticket',
+                // page: page, //int。页数，从0开始，每页10条
+                device: '',
+                wechat: ''
+            },
+            method: 'POST',
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+                console.log(res)
+                console.log('submit success');
+                if (res.data.res != 0) {
+                    console.log("服务器返回请求不成功，出现某种问题，需要处理")
+                } else if (res.data.res == 0) {
+                    console.log("服务器返回请求成功")
+                    that.setData({
+                        showdatameme: res.data.data
+                    })
+                    console.log(that.data.showdatameme)
+                }
+
+            },
+            fail: function (res) {
+                console.log('submit fail'); //API请求失败
+            },
+            complete: function (res) {
+                console.log('submit complete');
+            }
+        })
     },
 
     /**

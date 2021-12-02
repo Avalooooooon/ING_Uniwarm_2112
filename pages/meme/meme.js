@@ -6,6 +6,7 @@ Page({
      */
     data: {
         showdata: {},
+        imglist: null,
         showModal: false
     },
     todeclare: function () {
@@ -18,12 +19,28 @@ Page({
             showModal: false
         })
     },
-    toMemedet:function (e){
-        var memelistid=e.currentTarget.id;
-        var app=getApp(); //获取全局对象
-        app.requestMemelistid=memelistid; // 设置全局的请求访问时传递的参数
+    toMemedet: function (e) {
+        var memelistid = e.currentTarget.id;
+        var app = getApp(); //获取全局对象
+        app.requestMemelistid = memelistid; // 设置全局的请求访问时传递的参数
         wx.navigateTo({
             url: '/pages/memedet/memedet',
+        })
+    },
+    preview: function (e) {
+        let currentUrl = e.currentTarget.id
+        var index = ''
+        for (var i = 0; i < this.data.showdata.length; i++) {
+            console.log(this.data.showdata[i].show)
+            var tmpi = this.data.showdata[i].show.findIndex(o => o.image == currentUrl)
+            if (tmpi>=0) {
+                index = i
+                break
+            }
+        }
+        wx.previewImage({
+            current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
+            urls: this.data.imglist[index], // 需要预览的图片http链接列表
         })
     },
     /**
@@ -34,10 +51,10 @@ Page({
         wx.request({
             url: 'https://www.bizspace.cn/api/wechatweb/v1/images/sticker_series',
             data: {
-                token:'',
+                token: '',
                 bizid: 'uniwarm', //string。企业id, 固定为uniwarm
-                device:'',
-                wechat:''
+                device: '',
+                wechat: ''
             },
             method: "get", //http请求方法，主要有POST和GET
             header: {},
@@ -53,6 +70,20 @@ Page({
                         showdata: res.data.data
                     })
                     console.log(that.data.showdata)
+
+                    var tmpimglist = [];
+                    for (var i = 0; i < that.data.showdata.length; i++) {
+                        tmpimglist[i] = []
+                        for (let j = 0; j < that.data.showdata[i].show.length; j++) {
+                            var head = "http://www.bizspace.cn:8690";
+                            let a = that.data.showdata[i].show[j].image;
+                            tmpimglist[i][j] = head + a;
+                        }
+                    }
+                    that.setData({
+                        imglist: tmpimglist
+                    });
+                    console.log(that.data.imglist)
                 }
 
             },

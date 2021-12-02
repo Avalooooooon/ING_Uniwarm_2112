@@ -18,11 +18,11 @@ Page({
         size: 18, //每页8条数据
         scrollYHeight: 0, //scroll-view高度
 
-        imglist:[],
+        imglist: [],
     },
-    todraw:function (){
+    todraw: function () {
         wx.navigateTo({
-          url: '/pages/goodmoring/goodmoring',
+            url: '/pages/goodmoring/goodmoring',
         })
     },
     bindscroll: function (e) {
@@ -37,7 +37,7 @@ Page({
         //如果当前没有加载中且列表还有数据未加载，且页面滚动到距离底部40px内
         if (!loadingMore && hasMore && (scrollHeight - scrollYHeight - scrollTop < 40) && lastScollTop <= scrollTop) {
             this.loadMore()
-            total +=1;
+            total += 1;
         }
         lastScollTop = scrollTop
     },
@@ -66,19 +66,19 @@ Page({
     },
     preview: function (e) {
         let currentUrl = e.currentTarget.id
-        let tmpi = this.data.showdata.findIndex(o=> o.image==currentUrl)
+        let tmpi = this.data.showdata.findIndex(o => o.image == currentUrl)
         if (this.data.showdata[tmpi].locked === 'no') {
             wx.previewImage({
                 current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
                 urls: this.data.imglist, // 需要预览的图片http链接列表
                 //showmenu:true
             })
-        }else{
-            var app=getApp(); //获取全局对象
-            var lockurl=this.data.showdata[tmpi].image;
-            app.requestlockurl='http://www.bizspace.cn:8690' + lockurl; // 设置全局的请求访问时传递的参数
+        } else {
+            var app = getApp(); //获取全局对象
+            var lockurl = this.data.showdata[tmpi].image;
+            app.requestlockurl = 'http://www.bizspace.cn:8690' + lockurl; // 设置全局的请求访问时传递的参数
             wx.navigateTo({
-              url: '/pages/secret/secretlock/secretlock',
+                url: '/pages/secret/secretlock/secretlock',
             })
         }
     },
@@ -124,7 +124,7 @@ Page({
                             page,
                         })
                         let tmpshowdata = this.data.showdata;
-                        for (let i = 18*total; i < this.data.showdata.length; i++) {
+                        for (let i = 18 * total; i < this.data.showdata.length; i++) {
                             if (this.data.showdata[i].locked === 'yes') {
                                 let a = this.newurl(this.data.showdata[i].image);
                                 tmpshowdata[i].image = a;
@@ -134,15 +134,15 @@ Page({
                             showdata: tmpshowdata,
                         });
 
-                        let tmpimglist = [];     
-                        let j = 0;                  
+                        let tmpimglist = [];
+                        let j = 0;
                         for (let i = 0; i < this.data.showdata.length; i++) {
                             if (this.data.showdata[i].locked === 'no') {
-                                    var head = "http://www.bizspace.cn:8690";
-                                    let a = this.data.showdata[i].image;;
-                                    tmpimglist[j] = head + a;
-                                    j++;
-                                }
+                                var head = "http://www.bizspace.cn:8690";
+                                let a = this.data.showdata[i].image;;
+                                tmpimglist[j] = head + a;
+                                j++;
+                            }
                         }
                         this.setData({
                             imglist: tmpimglist

@@ -6,6 +6,7 @@ Page({
      */
     data: {
         showdata: {},
+        imglist: null,
         showModal: false
     },
     todeclare: function () {
@@ -25,6 +26,34 @@ Page({
         wx.navigateTo({
             url: '/pages/unimemedet/unimemedet',
         })
+    },
+    preview: function (e) {
+        let currentUrl = e.currentTarget.id
+        var index = ''
+        var lock = 0
+        for (var i = 0; i < this.data.showdata.length; i++) {
+            console.log(this.data.showdata[i].show)
+            var tmpi = this.data.showdata[i].show.findIndex(o => o.image == currentUrl)
+            if (tmpi>=0) {
+                if(this.data.showdata[i].show[tmpi].locked === 'yes'){
+                    lock = 1
+                }
+                index = i
+                break
+            }
+        }
+        if(lock == 0){
+            wx.previewImage({
+                current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
+                urls: this.data.imglist[index], // 需要预览的图片http链接列表
+            })
+        }else{
+            wx.showToast({
+                title: '图片尚未解锁',
+                icon: 'none',
+                duration: 2000//持续的时间
+              })
+        }
     },
     /**
      * 生命周期函数--监听页面加载
@@ -53,6 +82,25 @@ Page({
                         showdata: res.data.data
                     })
                     console.log(that.data.showdata)
+                    var tmpimglist = [];
+                    var k = [];
+                    for (var i = 0; i < that.data.showdata.length; i++) {
+                        tmpimglist[i] = []
+                        k[i] = 0
+                        for (let j = 0; j < that.data.showdata[i].show.length; j++) {
+                            if (that.data.showdata[i].show[j].locked === 'no'){
+                                var head = "http://www.bizspace.cn:8690";
+                                let a = that.data.showdata[i].show[j].image;
+                                tmpimglist[i][k[i]] = head + a;
+                                console.log(a)
+                                k[i]++;
+                            }
+                        }
+                    }
+                    that.setData({
+                        imglist: tmpimglist
+                    });
+                    console.log(that.data.imglist)
                 }
 
             },

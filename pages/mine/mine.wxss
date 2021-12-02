@@ -3,11 +3,13 @@
   flex-direction: column;
   height: 100vh;
 }
-.head{
+
+.head {
   height: 30vh;
   width: 100vw;
 }
-.result{
+
+.result {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +18,7 @@
   height: 30vh;
   width: 100vw;
 }
+
 .headimg {
   display: flex;
   justify-content: center;
@@ -25,12 +28,14 @@
   height: 12vh;
   border-radius: 100px;
 }
-.headimg image{
+
+.headimg image {
   width: 12vh;
   height: 12vh;
   border-radius: 100px;
 }
-.result button{
+
+.result button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,17 +44,20 @@
   height: 15vh !important;
   border-radius: 100px;
 }
-.headtext{
+
+.headtext {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
 .title {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .mainimage {
   background-size: 100% 100%;
 

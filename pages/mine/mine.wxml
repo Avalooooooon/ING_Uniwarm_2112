@@ -11,8 +11,10 @@
       <view class="headimg">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       </view>
-      <view class="headtext" style="padding-top: 1.5vh; font-size: 15px; color:#666666">{{userInfo.nickName}}</view>
-      <view class="title" style="padding-top: 2.5vh;">
+      <view style="height: 1vh;"></view>
+      <view class="headtext" style="font-size: 16px; color:#454545">{{userInfo.nickName}}</view>
+      <view style="height: 2vh;"></view>
+      <view class="title">
         <view style="font-size: 15px; color:black">
           您是Uniwarm的第</view>
         <view style="font-size: 15px; color:black">
@@ -20,20 +22,21 @@
         <view style="font-size: 15px; color:black">
           位会员</view>
       </view>
-      <view class="title" style="padding-top: 1.5vh;">
-        <view style="font-size: 15px; color:black">
+      <view style="height: 0.7vh;"></view>
+      <view class="title" >
+        <view style="font-size: 11px; color:#777777">
           我们在</view>
-        <view style="font-size: 15px; color:black">
+        <view style="font-size: 11px; color:#777777">
           {{year}}</view>
-        <view style="font-size: 15px; color:black">
+        <view style="font-size: 11px; color:#777777">
           年</view>
-        <view style="font-size: 15px; color:black">
+        <view style="font-size: 11px; color:#777777">
           {{month}}</view>
-        <view style="font-size: 15px; color:black">
+        <view style="font-size: 11px; color:#777777">
           月</view>
-        <view style="font-size: 15px; color:black">
+        <view style="font-size: 11px; color:#777777">
           {{day}}</view>
-        <view style="font-size: 15px; color:black">
+        <view style="font-size: 11px; color:#777777">
           日相遇</view>
       </view>
     </view>
@@ -42,13 +45,6 @@
   <button class="mainimage" bindtap="toGiftcase" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/mine/mycollect.png');">
   </button>
   <view class="options" style="padding-top: 1vh;">
-    <!-- <view class="list" style="padding-top: 2vh;">
-      <view style="padding-left: 4vw; font-size: 14px; color:#000000">账号设置</view>
-      <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
-    </view>
-    <view class="line" style="padding-left: 4vw; font-size: 15px; color:#EAECEE">
-      ——————————————————————————————————————————————————————————</view> -->
-
     <view class="list" style="padding-top: 2vh;" bindtap="toseviceitems">
       <view style="padding-left: 4vw; font-size: 14px; color:#000000">服务条款</view>
       <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>

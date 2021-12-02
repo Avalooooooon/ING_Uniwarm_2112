@@ -59,7 +59,7 @@
                         <view class="box">
                             <view class="memecontent">
                                 <block wx:for-items="{{itemName.show}}" wx:for-item="itemNameshow" wx:for-index="id">
-                                    <button class="card" id="{{itemName.sub_param.itemid}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}">
+                                    <button class="card" id="{{itemNameshow.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}" bindtap="preview">
                                         <image class="lock" wx:if="{{itemNameshow.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
                                     </button>
                                     <view class="interval"></view>

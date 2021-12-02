@@ -16,6 +16,13 @@ Page({
     rawData: '',
     signature: '',
   },
+  JTO: function (str) {
+    var reg = /: *\d{14,20} */g;
+    str = str.replace(reg, function (a) {
+        return a.replace(/: */g, ":\"").replace(" ", "") + "\"";
+    });
+    return str;
+},
   toGiftcase: function () {
     wx.navigateTo({
       url: '/pages/giftcase/giftcase',
@@ -107,7 +114,9 @@ Page({
             header: {
               "content-type": "application/x-www-form-urlencoded"
             },
+            dataType: "text",
             success: function (res) {
+              res.data = JSON.parse(that.JTO(res.data));
               console.log(res)
               if (res.data.res != 0) {
                 console.log("服务器返回请求不成功，出现某种问题，需要处理")
@@ -122,7 +131,7 @@ Page({
                 })
                 var tempdate = that.data.userdate;
                 var tempyear = tempdate.substring(0, 4);
-                var tempmonth = tempdate.substring(5,7);
+                var tempmonth = tempdate.substring(5, 7);
                 var tempday = tempdate.substring(8, 10);
                 that.setData({
                   year: tempyear,
