@@ -63,7 +63,7 @@ Page({
         wx.request({
             url: 'https://www.bizspace.cn/api/wechatweb/v1/images/lele_series',
             data: {
-                token: '',
+                token: wx.getStorageSync('token') ,
                 bizid: 'uniwarm', //string。企业id, 固定为uniwarm
                 device: '',
                 wechat: ''

@@ -68,7 +68,7 @@ Page({
             url: 'https://www.bizspace.cn/api/vtshop/v1/product/detail',
             data: {
                 bizid: 'uniwarm',
-                user_id: '',
+                user_id: wx.getStorageSync('userid'),
                 language: 'ch',
                 region: 'china',
                 itemid: colorid,
@@ -145,7 +145,7 @@ Page({
         wx.request({
             url: 'https://www.bizspace.cn/api/wechatweb/v1/images/model',
             data: {
-                token:'',
+                token:wx.getStorageSync('token') ,
                 bizid: 'uniwarm',
                 device:'',
                 wechat:'',
@@ -194,7 +194,7 @@ Page({
             data: {
                 bizid: 'uniwarm',
                 uni_id:'1',
-                user_id: '',
+                user_id: wx.getStorageSync('userid'),
                 language: 'ch',
                 region: 'china',
                 page:'0',

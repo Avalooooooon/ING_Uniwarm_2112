@@ -40,7 +40,7 @@ Page({
             url: 'https://www.bizspace.cn/api/vtshop/v1/product/listall', 
             data: { 
                 bizid: 'uniwarm', 
-                token:'',
+                token:wx.getStorageSync('token') ,
                 language: 'ch',
                 region:'china',
                 category1:'1',

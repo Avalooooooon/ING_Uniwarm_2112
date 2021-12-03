@@ -36,7 +36,7 @@ Page({
         wx.request({
             url: 'https://www.bizspace.cn/api/wechatweb/v1/images/sticker',
             data: {
-                token:'',
+                token:wx.getStorageSync('token') ,
                 bizid: 'uniwarm', //string。企业id, 固定为uniwarm
                 se_id: memelistid,
                 device:'',

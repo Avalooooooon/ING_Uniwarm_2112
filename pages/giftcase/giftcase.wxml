@@ -13,12 +13,12 @@
             <view class="modules-scroll-view">
                 <!-- 原字号：8 8 8 9 9 -->
                 <view class="title">
-                    <view style="font-size: 11px; color:#777777">
+                    <!-- <view style="font-size: 11px; color:#777777">
                         还有</view>
                     <view style="font-size: 11px; color:#777777">
                         2</view>
                     <view style="padding-right: 5vw; font-size: 11px; color:#777777">
-                        个未解锁</view>
+                        个未解锁</view> -->
                     <view style="font-size: 12px; color:#C99B3A" bindtap="tosecret">
                         查看更多</view>
                     <view style="padding-left: 1vw; font-size: 12px; color:#C99B3A">
@@ -48,12 +48,12 @@
             <view style="padding-top: 2vh;"></view>
             <view class="modules-scroll-view">
                 <view class="title">
-                    <view style="font-size: 11px; color:#777777">
+                    <!-- <view style="font-size: 11px; color:#777777">
                         还有</view>
                     <view style="font-size: 11px; color:#777777">
                         2</view>
                     <view style="padding-right: 5vw; font-size: 11px; color:#777777">
-                        个未解锁</view>
+                        个未解锁</view> -->
                     <view style="font-size: 12px; color:#C99B3A" bindtap="tounimeme">
                         查看全部</view>
                     <view style="padding-left: 1vw; font-size: 12px; color:#C99B3A">
@@ -97,7 +97,7 @@
                 </view>
 
                 <view class="title">
-                    <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/ht.jpg); background-size: 100% 100%;" bindtap="preview">
+                    <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/mainredpacket.png); background-size: 100% 100%;" bindtap="preview">
                     </button>
                 </view>
 

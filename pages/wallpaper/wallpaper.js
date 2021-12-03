@@ -74,7 +74,7 @@ Page({
         wx.request({
             url: 'https://www.bizspace.cn/api/wechatweb/v1/images/wallpaper',
             data: {
-                token: '',
+                token: wx.getStorageSync('token') ,
                 bizid: 'uniwarm', //string。企业id, 固定为uniwarm
                 page: page, //int。页数，从0开始，每页10条
                 device: '',

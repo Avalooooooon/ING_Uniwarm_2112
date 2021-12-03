@@ -33,7 +33,7 @@ Page({
             url: 'https://www.bizspace.cn/api/vtshop/v1/product/detail',
             data: {
                 bizid: 'uniwarm',
-                user_id: '',
+                user_id: wx.getStorageSync('userid'),
                 language: 'ch',
                 region: 'china',
                 itemid: itemid,
