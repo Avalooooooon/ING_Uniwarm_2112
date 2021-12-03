@@ -13,7 +13,7 @@
             <view class="modules-scroll-view">
                 <!-- 原字号：8 8 8 9 9 -->
                 <view class="title">
-                    <view style="font-size: 11px; color:#777777"> 
+                    <view style="font-size: 11px; color:#777777">
                         还有</view>
                     <view style="font-size: 11px; color:#777777">
                         2</view>
@@ -28,7 +28,12 @@
                 <view class="content">
                     <block wx:for-items="{{showdatalove}}" wx:for-item="itemName" wx:for-index="id">
                         <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
-                            <image class="lock" wx:if="{{itemName.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
+                        </button>
+                        <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
+                        </button>
+                        <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
+                        </button>
+                        <button class="card" id="{{itemName.image}}" style="background-image: url('http://mini.s-shot.ru/300x300/100/png?http://www.bizspace.cn:8690{{itemName.image}}');" bindtap="preview">
                         </button>
                     </block>
                 </view>
@@ -54,22 +59,16 @@
                     <view style="padding-left: 1vw; font-size: 12px; color:#C99B3A">
                         ></view>
                 </view>
-                <view class="body">
+                <view class="memecontent">
                     <block wx:for-items="{{showdatameme}}" wx:for-item="itemName" wx:for-index="id">
-                        <view class="box">
-                            <view class="memecontent">
-                                <block wx:for-items="{{itemName.show}}" wx:for-item="itemNameshow" wx:for-index="id">
-                                    <button class="card" id="{{itemNameshow.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}" bindtap="preview">
-                                        <image class="lock" wx:if="{{itemNameshow.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
-                                    </button>
-                                    <view class="interval"></view>
-                                </block>
-                            </view>
-
-                        </view>
+                        <button class="card" id="{{itemName.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemName.image}}')" bindtap="memepreview">
+                        </button>
+                        <button class="card" id="{{itemName.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemName.image}}')" bindtap="memepreview">
+                        </button>
+                        <button class="card" id="{{itemName.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemName.image}}')" bindtap="memepreview">
+                        </button>
                     </block>
                 </view>
-
             </view>
         </scroll-view>
     </swiper-item>

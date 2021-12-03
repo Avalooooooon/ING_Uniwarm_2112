@@ -23,7 +23,7 @@
           位会员</view>
       </view>
       <view style="height: 0.7vh;"></view>
-      <view class="title" >
+      <view class="title">
         <view style="font-size: 11px; color:#777777">
           我们在</view>
         <view style="font-size: 11px; color:#777777">
@@ -41,9 +41,16 @@
       </view>
     </view>
   </view>
-
-  <button class="mainimage" bindtap="toGiftcase" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/mine/mycollect.png');">
-  </button>
+  
+  <view wx:if="{{!hasUserInfo}}">
+    <button class="mainimage" bindtap="getUserProfile" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/mine/mycollect.png');">
+    </button>
+  </view>
+  <view wx:else>
+    <button class="mainimage" bindtap="toGiftcase" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/mine/mycollect.png');">
+    </button>
+  </view>
+  
   <view class="options" style="padding-top: 1vh;">
     <view class="list" style="padding-top: 2vh;" bindtap="toseviceitems">
       <view style="padding-left: 4vw; font-size: 14px; color:#000000">服务条款</view>

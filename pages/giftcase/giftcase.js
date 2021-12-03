@@ -23,7 +23,8 @@ Page({
 
         // 表情包
         memeimglist: null,
-        showdatameme: {},
+        showdatameme: [],
+        memeimglist: [],
         // 红包
 
         // 卡券
@@ -61,30 +62,14 @@ Page({
             }, 333
         )
     },
-    newurl: function (property) {
-        var oldstring = property;
-        var urlarr = oldstring.split('.');
-        var newstring = urlarr.join("_lock.")
-        return newstring;
+    preview: function (e) {
+        let currentUrl = e.currentTarget.id
+        wx.previewImage({
+            current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
+            urls: this.data.imglist, // 需要预览的图片http链接列表
+            //showmenu:true
+        })
     },
-    // preview: function (e) {
-    //     let currentUrl = e.currentTarget.id
-    //     let tmpi = this.data.showdatalove.findIndex(o => o.image == currentUrl)
-    //     if (this.data.showdatalove[tmpi].locked === 'no') {
-    //         wx.previewImage({
-    //             current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
-    //             urls: this.data.imglist, // 需要预览的图片http链接列表
-    //             //showmenu:true
-    //         })
-    //     } else {
-    //         var app = getApp(); //获取全局对象
-    //         var lockurl = this.data.showdatalove[tmpi].image;
-    //         app.requestlockurl = 'http://www.bizspace.cn:8690' + lockurl; // 设置全局的请求访问时传递的参数
-    //         wx.navigateTo({
-    //             url: '/pages/secret/secretlock/secretlock',
-    //         })
-    //     }
-    // },
     fetchList: function (page, cb) {
         let nowRequestTime = (new Date()).getTime();
         //限制两次网络请求间隔至少1秒
@@ -111,12 +96,12 @@ Page({
             },
 
             success: (res) => {
-                console.log(res);
+                // console.log(res);
                 console.log(wx.getStorageSync('token'))
                 console.log(wx.getStorageSync('userid'))
 
                 if (res.data.res != 0) {
-                    console.log("服务器返回请求不成功，出现某种问题，需要处理")
+                    // console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
                     // console.log("服务器返回请求成功")
                     let showdatalove = res.data.data || [];
@@ -131,26 +116,13 @@ Page({
                             hasMore: showdatalove.length == this.data.size,
                             page,
                         })
-                        let tmpshowdatalove = this.data.showdatalove;
-                        for (let i = 18 * total; i < this.data.showdatalove.length; i++) {
-                            if (this.data.showdatalove[i].locked === 'yes') {
-                                let a = this.newurl(this.data.showdatalove[i].image);
-                                tmpshowdatalove[i].image = a;
-                            }
-                        }
-                        this.setData({
-                            showdatalove: tmpshowdatalove,
-                        });
-
                         let tmpimglist = [];
                         let j = 0;
                         for (let i = 0; i < this.data.showdatalove.length; i++) {
-                            if (this.data.showdatalove[i].locked === 'no') {
-                                var head = "http://www.bizspace.cn:8690";
-                                let a = this.data.showdatalove[i].image;;
-                                tmpimglist[j] = head + a;
-                                j++;
-                            }
+                            var head = "http://www.bizspace.cn:8690";
+                            let a = this.data.showdatalove[i].image;;
+                            tmpimglist[j] = head + a;
+                            j++;
                         }
                         this.setData({
                             imglist: tmpimglist
@@ -186,6 +158,13 @@ Page({
     },
 
     // 表情包
+    memepreview: function (e) {
+        let currentUrl = e.currentTarget.id
+        wx.previewImage({
+            current: 'http://www.bizspace.cn:8690' + currentUrl, // 当前显示图片的http链接
+            urls: this.data.memeimglist, // 需要预览的图片http链接列表
+        })
+    },
     tounimeme: function () {
         wx.navigateTo({
             url: '/pages/unimeme/unimeme',
@@ -200,9 +179,6 @@ Page({
     // 顶部导航栏
     swichNav: function (e) {
         var that = this;
-        console.log(e.target.dataset)
-        console.log(e.target)
-        console.log(e)
         if (this.data.currentTab === e.target.dataset.current) {
             return false;
         } else {
@@ -241,7 +217,6 @@ Page({
                 token: wx.getStorageSync('token'),
                 user_id: wx.getStorageSync('userid'),
                 func: 'lele',
-                // page: page, //int。页数，从0开始，每页10条
                 device: '',
                 wechat: ''
             },
@@ -250,7 +225,7 @@ Page({
                 "content-type": "application/x-www-form-urlencoded"
             },
             success: function (res) {
-                console.log(res)
+                console.log(res)   
                 console.log('submit success');
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
@@ -260,6 +235,19 @@ Page({
                         showdatameme: res.data.data
                     })
                     console.log(that.data.showdatameme)
+
+                    let tmpimglist = [];
+                        let j = 0;
+                        for (let i = 0; i < that.data.showdatameme.length; i++) {
+                            var head = "http://www.bizspace.cn:8690";
+                            let a = that.data.showdatameme[i].image;;
+                            tmpimglist[j] = head + a;
+                            j++;
+                        }
+                        that.setData({
+                            memeimglist: tmpimglist
+                        });
+                        console.log(that.data.memeimglist)
                 }
 
             },
@@ -294,9 +282,9 @@ Page({
                 } else if (res.data.res == 0) {
                     console.log("服务器返回请求成功")
                     that.setData({
-                        showdatameme: res.data.data
+                        // showdatameme: res.data.data
                     })
-                    console.log(that.data.showdatameme)
+                    // console.log(that.data.showdatameme)
                 }
 
             },
@@ -331,9 +319,9 @@ Page({
                 } else if (res.data.res == 0) {
                     console.log("服务器返回请求成功")
                     that.setData({
-                        showdatameme: res.data.data
+                        // showdatameme: res.data.data
                     })
-                    console.log(that.data.showdatameme)
+                    // console.log(that.data.showdatameme)
                 }
 
             },
