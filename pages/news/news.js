@@ -7,6 +7,13 @@ Page({
         //声明接收数据的变量
         showdata: {}
     },
+    JTO: function (str) {
+        var reg = /: *\d{14,20} */g;
+        str = str.replace(reg, function (a) {
+            return a.replace(/: */g, ":\"").replace(" ", "") + "\"";
+        });
+        return str;
+    },
     toNewsdet: function (e) {
         console.log(e);
         var newsid = e.currentTarget.id;
@@ -33,7 +40,10 @@ Page({
             },
             method: "get", //http请求方法，主要有POST和GET
             header: {},
+            dataType: "text",
+
             success: function (res) {
+                res.data = JSON.parse(that.JTO(res.data));
                 console.log('submit success');
                 console.log(res.data) //res.data是服务器给的所有数据，打印出来的是Object。例子：如果是要电话，格式应为我res.data.number
 
