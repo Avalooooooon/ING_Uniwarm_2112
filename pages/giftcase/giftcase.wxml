@@ -97,7 +97,7 @@
                 </view>
 
                 <view class="title">
-                    <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/mainredpacket.png); background-size: 100% 100%;">
+                    <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/mainredpacket.jpg); background-size: 100% 100%;">
                     </button>
                 </view>
 
