@@ -86,3 +86,11 @@
   justify-content: space-between;
   flex-grow: 1;
 }
+.line{
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+  background-color:#EAECEE;
+  width: 96vw;
+  margin-left: 4vw; 
+  height: 1px;
+}

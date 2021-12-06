@@ -56,15 +56,13 @@
       <view style="padding-left: 4vw; font-size: 14px; color:#000000">服务条款</view>
       <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
     </view>
-    <view class="line" style="padding-left: 4vw; font-size: 15px; color:#EAECEE">
-      ——————————————————————————————————————————————————————————</view>
+    <view class="line"></view>
 
     <view class="list" bindtap="topersonalitems">
       <view style="padding-left: 4vw; font-size: 14px; color:#000000">隐私策略</view>
       <view style="padding-right: 5vw;font-size: 14px; color:#666666">></view>
     </view>
-    <view class="line" style="padding-left: 4vw; font-size: 15px; color:#EAECEE">
-      ——————————————————————————————————————————————————————————</view>
+    <view class="line"></view>
 
     <view class="list" bindtap="toApp">
       <view style="padding-left: 4vw; font-size: 14px; color:#000000">更多功能（APP）</view>
