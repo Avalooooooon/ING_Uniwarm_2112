@@ -26,3 +26,12 @@
   .vol-picture {
     width: 100%;
   }
+  .daodi {
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    padding-bottom: 3vh;
+  }

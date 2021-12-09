@@ -6,5 +6,9 @@ Component({
         type: Boolean,
         value: false//默认不显示
       },
+      daodi: {//到底了～ 是否显示
+        type: Boolean,
+        value: false//默认不显示
+      },
     },
   })

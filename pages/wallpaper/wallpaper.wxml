@@ -7,16 +7,13 @@
                 bindscroll="bindscroll" scroll-top="{{scrollTop}}">
                 <!-- bindscrolltolower="onbindscrolltolower" -->
                 <view class="vol-card">
-                    <image class="vol-picture" src="https://www.bizspace.cn{{itemName.image}}" mode="widthFix"
+                    <image class="vol-picture" src="https://www.bizspace.cn{{itemName.image}}" mode="widthFix" data-currenturl="https://www.bizspace.cn{{itemName.image}}"
                         bindlongpress="saveimage"></image>
-                    <!-- <view>{{tag}}</view>
-                    <view>{{num}}</view> -->
-                        <!-- <block wx:if="{{!(((itemName.id!=1)&&(itemName.id!=3)&&(postid+1)%4==0)&&hasMore==true&&tag[num]==1)}}">
-                            <loading style="display: none;"></loading>
-                        </block> -->
-
-                    <loading visible="{{(((itemName.id!=1)&&(itemName.id!=2)&&(postid+1)%3==0)&&hasMore==true&&tag[num]==1)}}"></loading>
-                    <view hidden="{{tag[5]!=1}}">到底了～</view>
+                    <!-- 这个是每页4张然后刷新的格式，就是js里data里size: 4 -->
+                    <!-- <loading visible="{{(((itemName.id!=1)&&(itemName.id!=3)&&(postid+1)%4==0)&&hasMore==true&&tag[num]==1)}}"></loading>
+                    <view hidden="{{tag[5]!=1}}">到底了～</view> -->
+                    <loading visible="{{(((itemName.id!=1)&&(itemName.id!=4)&&(postid+1)%5==0)&&hasMore==true&&tag[num]==1)}}"></loading>
+                    <view class="daodi" hidden="{{!(daodi&&((postid+1)==lastpagesize)&&scrolltobottom)}}">到底了～</view>
                 </view>
             </scroll-view>
         </swiper-item>

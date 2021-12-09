@@ -22,12 +22,83 @@ Page({
         hasMore: true, //列表是否有数据未加载
         scrollYHeight: 0, //scroll-view高度
         page: 0,
-        size: 3,//每页4条
+        size: 5,//每页5条
 
         tag:[],
+        daodi:false,
+        lastpagesize:0,
+        scrolltobottom: false,
         num:0,
         postid: ''
     },
+    saveimage:function(e) {
+        let _this = this
+        wx.showActionSheet({
+            itemList: ['保存到相册'],
+            success(res) {
+                let url = e.target.dataset.currenturl;;
+                wx.getSetting({
+                    success: (res) => {
+                        if (!res.authSetting['scope.writePhotosAlbum']) {
+                            wx.authorize({
+                                scope: 'scope.writePhotosAlbum',
+                                success: () => {
+                                    // 同意授权
+                                    _this.saveImgInner(url);
+                                },
+                                fail: (res) => {
+                                    console.log(res);
+                                    wx.showModal({
+                                        title: '保存失败',
+                                        content: '请开启访问手机相册权限',
+                                        success(res) {
+                                            wx.openSetting()
+                                        }
+                                    })
+                                }
+                            })
+                        } else {
+                            // 已经授权了
+                            _this.saveImgInner(url);
+                        }
+                    },
+                    fail: (res) => {
+                        console.log(res);
+                    }
+                })
+            },
+            fail(res) {
+                console.log(res.errMsg)
+            }
+        })
+    },
+
+    // 长按保存功能--保存部分
+    saveImgInner:function(url) {
+        wx.getImageInfo({
+            src: url,
+            success: (res) => {
+                let path = res.path;
+                wx.saveImageToPhotosAlbum({
+                    filePath: path,
+                    success: (res) => {
+                        console.log(res);
+                        wx.showToast({
+                            icon: 'success',
+                            title: '已保存到相册',
+                        })
+                    },
+                    fail: (res) => {
+                        console.log(res);
+                    }
+                })
+            },
+            fail: (res) => {
+                console.log(res);
+            }
+        })
+    },
+    
     onSlideChange: function (e) { //swiper。postId为当前swiper-item编号。
         postId = e.detail.current;
         this.setData({
@@ -38,10 +109,26 @@ Page({
    bindscroll: function (e) {
     const { scrollHeight, scrollTop } = e.detail;
     const { scrollYHeight, hasMore } = this.data;
-    //如果当前没有加载中且列表还有数据未加载，且页面滚动到距离底部40px内
-    if (!loadingMore && hasMore && (postId + 1) % 3 == 0 &&  (scrollHeight - scrollYHeight - scrollTop < 40) && lastScollTop <= scrollTop) {
+    //如果当前没有加载中且列表还有数据未加载，且页面滚动到距离底部40px内。这里(postId + 1) % x，x=data里的size
+    if (!loadingMore && hasMore && (postId + 1) % 5 == 0 &&  (scrollHeight - scrollYHeight - scrollTop < 40) && lastScollTop <= scrollTop) {
         this.loadMore()
+        if ((postId + 1) == this.data.lastpagesize && lastScollTop <= scrollTop || (lastScollTop > scrollTop && (scrollHeight - scrollYHeight - scrollTop < 40))) {
+            this.setData({
+                scrolltobottom: true,
+            })
+        }
+        console.log(this.data.scrolltobottom)
       console.log("要加载loadMore")
+    }
+    if ((postId + 1) != this.data.lastpagesize || (lastScollTop > scrollTop && (scrollHeight - scrollYHeight - scrollTop > 5))) {
+        this.setData({
+            scrolltobottom: false,
+        })
+    }
+    if ((postId + 1) == this.data.lastpagesize && lastScollTop <= scrollTop || (lastScollTop > scrollTop && (scrollHeight - scrollYHeight - scrollTop < 40))) {
+        this.setData({
+            scrolltobottom: true,
+        })
     }
     lastScollTop = scrollTop
   },
@@ -54,8 +141,8 @@ Page({
         loadingMore = true // loadingMore在Page外，初始值为假。
         setTimeout(
             () => {
-                //本来得加一，这里先用的不加一的
-                this.fetchList(page, () => { //用data里的page值+1后传给fetchList（）
+                //本来得加一，这里先用的不加一的.就是this.fetchList(page+1，（）
+                this.fetchList(page+1, () => { //用data里的page值+1后传给fetchList（）
                     loadingMore = false;
                 })
             }, 333
@@ -95,6 +182,7 @@ Page({
                         this.setData({
                             hasMore: false,
                             page,
+                            daodi:true
                           })
                     }else{
                         this.setData({
@@ -102,8 +190,8 @@ Page({
                             hasMore: showdata.length == this.data.size,
                             page,
                             
+                            lastpagesize: this.data.lastpagesize+res.data.data.length
                         })
-                        console.log(this.data.showdata.length)
                     }    
                 }
                 if (cb) {   // 这个不知道干啥的
