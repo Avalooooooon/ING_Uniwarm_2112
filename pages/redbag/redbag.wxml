@@ -1,33 +1,13 @@
 <!--pages/redbag/redbag.wxml-->
-<view catchtouchmove="preventTouchMove" class="alert-mask" wx:if="{{showModal}}"></view>
-<view class="modalDlg" wx:if="{{showModal}}">
-    <view class="bigTitle" style="margin-top: 4vh; margin-bottom: 1.5vh; font-size: 14px; font-weight: bold; color:#666666">您的序列号为：KSSA65</view>
-    <view class="title">
-        <button class="copynumber" bindtap="taptocopy">
-            <view style="font-size: 15px; color:white">
-                复制序列号</view>
-        </button>
-    </view>
-    <view class="paragraph">
-        <view class="modaltitle">使用说明</view>
-        <view class="modaltext">
-            <view class="item">· 复制序列号</view>
-            <view class="item">· 进入微信发红包界面</view>
-            <view class="item">· 点击红包封面</view>
-            <view class="item">· 点击添加按钮后，输入序列号即可领取</view>
-        </view>
-    </view>
-    <image class="hide-btn" bindtap="hideMask" src="../../img/close.png" mode="widthFix"></image>
-</view>
-
-<!-- <view wx:if='{{isredbagempty}}' class="body" style="height: 94vh;">
+<view wx:if='{{isredbagempty}}' class="body" style="height: 94vh;">
     <image src="../../img/kaquan.png" style="width: 40vw; margin-top:30vh; margin-bottom: 2vh; border: 1px dashed black;" mode="widthFix"></image>
     <view style="color:#B0B0B0">暂未获得该礼品哦～</view>
-</view> -->
-<scroll-view wx:if='{{isredbagempty}}' scroll-y="true" style="height:{{scrollYHeight- 45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
-    <view style="padding-top:2vh;"></view>
-    <view class="modules-scroll-view">
-        <!-- <view class="title">
+</view>
+<scroll-view wx:if='{{!isredbagempty}}' scroll-y="true" style="height:{{scrollYHeight- 45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+    <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
+        <view style="padding-top:2vh;"></view>
+        <view class="modules-scroll-view">
+            <!-- <view class="title">
                     <button class="usekeybutton">
                         <view style="padding-right: 1vw; font-size: 12px; color:#C99B3A">
                             钥匙*</view>
@@ -37,7 +17,7 @@
                             消耗钥匙领取红包</view>
                     </button>
                 </view> -->
-        <!-- <view class="title">
+            <!-- <view class="title">
                     <view style="padding-right: 10vw; font-size: 10px; color:#666666">
                         -</view>
                     <view style="font-size: 11px; color:#666666">
@@ -45,18 +25,57 @@
                     <view style="padding-left: 10vw; font-size: 10px; color:#666666">
                         -</view>
                 </view> -->
-        <view style="height: 7vh;"></view>
-        <view class="title">
-            <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/mainredpacket.jpg); background-size: 100% 100%;">
-            </button>
-        </view>
-        <view style="height: 2vh;"></view>
-        <view class="title">
-            <button class="serialbutton" bindtap="toserial">
-                <view style="font-size: 12px; color:white">
-                    查看序列号</view>
-            </button>
+            <view style="height: 7vh;"></view>
+            <view class="title">
+                <button class="redcard" id="{{itemName.image}}" style="background-image: url('http://www.bizspace.cn:8690{{itemName.image}}'); background-size: 100% 100%;">
+                </button>
+            </view>
+            <view style="height: 2vh;"></view>
+            <view class="title">
+                <button class="serialbutton" bindtap="toserial">
+                    <view style="font-size: 14px; color:white">
+                        查看序列号</view>
+                </button>
+            </view>
         </view>
 
-    </view>
+        <view catchtouchmove="preventTouchMove" class="alert-mask" wx:if="{{showModal}}"></view>
+        <view wx:if='{{itemName.locked === "no" && showModal}}' class="modalDlg">
+            <view class="bigTitle" style="margin-top: 9vh; margin-bottom: 1.5vh; font-size: 14px; font-weight: bold; color:#C99B3A">
+                <view style="padding-right: 0vw;">
+                    您的序列号为：</view>
+                <view>
+                    {{itemName.redkey}}</view>
+            </view>
+            <view class="title">
+                <button class="copynumber" bindtap="taptocopy" id="{{itemName.redkey}}">
+                    <view style="font-size: 14px; color:white">
+                        复制序列号</view>
+                </button>
+            </view>
+            <view style="height: 8vh;"></view>
+            <view class="title">
+                <view style="padding-right: 4vw; font-size: 14px; font-weight: bold; color:#333333">
+                    —</view>
+                <view style="font-size: 14px; font-weight: bold; color:#333333">
+                    使用说明</view>
+                <view style="padding-left: 4vw; font-size: 14px; font-weight: bold; color:#333333">
+                    —</view>
+            </view>
+            <view class="paragraph">
+                <view class="modaltext">
+                    <view class="item">·复制序列号</view>
+                    <view class="item">·进入微信发红包界面</view>
+                    <view class="item">·点击红包封面</view>
+                    <view class="item">·点击添加按钮后，输入序列号即可领取</view>
+                </view>
+            </view>
+            <image class="hide-btn" bindtap="hideMask" src="../../img/close.png" mode="widthFix"></image>
+        </view>
+        <view wx:if='{{itemName.locked === "yes" && showModal}}' class="modalDlg">
+            <view class="bigTitle" style="margin-top: 9vh; margin-bottom: 1.5vh; font-size: 14px; font-weight: bold; color:#C99B3A">请前往游戏获取</view>
+            <view style="height: 8vh;"></view>
+            <image class="hide-btn" bindtap="hideMask" src="../../img/close.png" mode="widthFix"></image>
+        </view>
+    </block>
 </scroll-view>

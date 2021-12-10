@@ -57,6 +57,7 @@
 
     margin-bottom: 2vh;
 }
+
 button {
     background-size: 100% 100%;
 }
@@ -88,6 +89,7 @@ button {
     flex-direction: column;
     align-items: center;
 }
+
 .memecontent {
     display: flex;
     flex-wrap: wrap;
@@ -95,11 +97,13 @@ button {
 
     margin-bottom: 2vh;
 }
-.memecontent button{
+
+.memecontent button {
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .head {
     display: flex;
     flex-direction: row;
@@ -124,12 +128,13 @@ button {
     background: #000;
     z-index: 9000;
     opacity: 0.7;
-  }
-  .modalDlg {
+}
+
+.modalDlg {
     width: 83vw;
-    height: 39vh;
+    height: 59vh;
     position: fixed;
-    top: 53%;
+    top: 43%;
     left: -1%;
     z-index: 9999;
     box-sizing: border-box;
@@ -137,50 +142,58 @@ button {
     margin: -370rpx 85rpx;
     background-color: #fff;
     border-radius: 0rpx;
-   }
-   .bigTitle{
+}
+
+.bigTitle {
     margin-top: 2vh;
     margin-bottom: 3.5vh;
-  
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-   }
-  
-   .paragraph{
+    flex-grow: 1;
+}
+
+.paragraph {
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
-   }
-   .modaltitle{
+    align-items: flex-start;
+}
+
+.modaltitle {
     margin-top: 2vh;
     margin-left: 4vw;
-    font-size: 13px; 
-    color:#333333
-   }
-   .modaltext{
+    font-size: 13px;
+    color: #333333
+}
+
+.modaltext {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     align-content: center;
-    
+
     margin-top: 1vh;
     margin-bottom: 3.5vh;
     margin-left: 4vw;
-    font-size: 12px; 
-    color:#333333
-   }
-   .item{
-     margin-bottom: 1.5px;
-   }
-   .hide-btn {
+    font-size: 12px;
+    color: #333333
+}
+
+.item {
+    margin-bottom: 1.5px;
+}
+
+.hide-btn {
     position: absolute;
-    top:1vh;
-    right:1vh;
-    width:2vh;
-   }
-   .copynumber {
+    top: 1vh;
+    right: 1vh;
+    width: 2vh;
+}
+
+.copynumber {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -191,6 +204,7 @@ button {
     background-color: #C99B3A;
     /* border: 1px solid #C99B3A */
 }
+
 /* 弹窗蒙版end */
 .usekeybutton {
     width: auto;

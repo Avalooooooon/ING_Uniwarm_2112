@@ -30,7 +30,7 @@ Page({
         // 红包
         isredbagempty: true,
         showModal: false,
-        showdataredbag: [],
+        showdataredbag: {},
         // 卡券
         isticketempty: true,
         showdataticket: [],
@@ -196,9 +196,9 @@ Page({
             showModal: true
         })
     },
-    taptocopy: function(){
+    taptocopy: function(e){
         wx.setClipboardData({
-            data: 'hello111',//要复制的数据
+            data: e.currentTarget.id,//要复制的数据
             success (res) {
                 wx.showToast({
                     title: '序列码已复制',
@@ -326,12 +326,11 @@ Page({
                     console.log("服务器返回请求成功")
                     if(res.data.data.length == 0){
                         that.setData({
-                            // showdata: res.data.data
                             isredbagempty: true
                         })
                     }else{
                         that.setData({
-                            // showdata: res.data.data
+                            showdataredbag: res.data.data,
                             isredbagempty: false
                         })
                     }

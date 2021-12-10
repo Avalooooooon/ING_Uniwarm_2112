@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        showdata:{},
+        showdata: {},
         isredbagempty: true,
         showModal: false,
     },
@@ -19,22 +19,22 @@ Page({
             showModal: true
         })
     },
-    taptocopy: function(){
+    taptocopy: function (e) {
         wx.setClipboardData({
-            data: 'hello111',//要复制的数据
-            success (res) {
+            data: e.currentTarget.id, //要复制的数据
+            success(res) {
                 wx.showToast({
                     title: '序列码已复制',
                     icon: 'success',
-                    duration: 2000//持续的时间
-                  })
-            //   wx.getClipboardData({
-            //     success (res) {
-            //       console.log(res.data) // data
-            //     }
-            //   })
+                    duration: 2000 //持续的时间
+                })
+                //   wx.getClipboardData({
+                //     success (res) {
+                //       console.log(res.data) // data
+                //     }
+                //   })
             }
-          })
+        })
     },
     /**
      * 生命周期函数--监听页面加载
@@ -42,20 +42,15 @@ Page({
     onLoad: function (options) {
         var that = this;
         wx.request({
-            url: 'https://www.bizspace.cn/api/wechatweb/v1/users/mygift',
+            url: 'https://www.bizspace.cn/api/wechatweb/v1/images/redpacket',
             data: {
                 bizid: 'uniwarm',
                 token: wx.getStorageSync('token'),
-                user_id: wx.getStorageSync('userid'),
-                func: 'redpacket',
-                // page: page, //int。页数，从0开始，每页10条
                 device: '',
                 wechat: ''
             },
-            method: 'POST',
-            header: {
-                "content-type": "application/x-www-form-urlencoded"
-            },
+            method: 'GET',
+            header: {},
             success: function (res) {
                 console.log(res)
                 console.log('submit success');
@@ -63,18 +58,17 @@ Page({
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
                     console.log("服务器返回请求成功")
-                    if(res.data.data.length == 0){
+                    if (res.data.data.length == 0) {
                         that.setData({
-                            // showdata: res.data.data
                             isredbagempty: true
                         })
-                    }else{
+                    } else {
                         that.setData({
-                            // showdata: res.data.data
+                            showdata: res.data.data,
                             isredbagempty: false
                         })
                     }
-                    // console.log(that.data.showdata)
+                    console.log(that.data.showdata)
                 }
 
             },
