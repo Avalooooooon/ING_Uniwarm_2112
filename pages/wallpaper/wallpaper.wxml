@@ -13,7 +13,7 @@
                     <!-- <loading visible="{{(((itemName.id!=1)&&(itemName.id!=3)&&(postid+1)%4==0)&&hasMore==true&&tag[num]==1)}}"></loading>
                     <view hidden="{{tag[5]!=1}}">到底了～</view> -->
                     <loading visible="{{(((itemName.id!=1)&&(itemName.id!=4)&&(postid+1)%5==0)&&hasMore==true&&tag[num]==1)}}"></loading>
-                    <view class="daodi" hidden="{{!(daodi&&((postid+1)==lastpagesize)&&scrolltobottom)}}">到底了～</view>
+                    <!-- <view class="daodi" hidden="{{!(daodi&&((postid+1)==lastpagesize)&&scrolltobottom)}}">到底了～</view> -->
                 </view>
             </scroll-view>
         </swiper-item>

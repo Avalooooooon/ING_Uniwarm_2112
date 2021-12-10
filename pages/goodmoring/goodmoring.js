@@ -26,7 +26,7 @@ Page({
 
         tag: [],
         daodi: false,
-        lastpagesize: 0,
+        lastpagesize: 0,   //加上最后一页（非空白页）的图的总图数
         scrolltobottom: false,
         num: 0,
         postid: ''

@@ -8,7 +8,11 @@
 
 <swiper current="{{currentTab}}" class="swiper" duration="300" style="height:95vh" bindchange="bindChange">
     <swiper-item>
-        <scroll-view scroll-y="true" style="height:{{scrollYHeight-45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+        <view wx:if='{{isscrectempty}}' class="body" style="height: 94vh;">
+            <image src="../../img/kaquan.png" style="width: 40vw; margin-top:30vh; margin-bottom: 2vh; border: 1px dashed black;" mode="widthFix"></image>
+            <view style="color:#B0B0B0">暂未获得该礼品哦～</view>
+        </view>
+        <scroll-view wx:if='{{!isscrectempty}}' scroll-y="true" style="height:{{scrollYHeight-45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
             <view style="padding-top: 2vh;"></view>
             <view class="modules-scroll-view">
                 <!-- 原字号：8 8 8 9 9 -->
@@ -44,7 +48,11 @@
     </swiper-item>
 
     <swiper-item>
-        <scroll-view scroll-y="true" style="height:{{scrollYHeight-45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+        <view wx:if='{{ismemeempty}}' class="body" style="height: 94vh;">
+            <image src="../../img/kaquan.png" style="width: 40vw; margin-top:30vh; margin-bottom: 2vh; border: 1px dashed black;" mode="widthFix"></image>
+            <view style="color:#B0B0B0">暂未获得该礼品哦～</view>
+        </view>
+        <scroll-view wx:if='{{!ismemeempty}}' scroll-y="true" style="height:{{scrollYHeight-45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
             <view style="padding-top: 2vh;"></view>
             <view class="modules-scroll-view">
                 <view class="title">
@@ -74,10 +82,35 @@
     </swiper-item>
 
     <swiper-item>
-        <scroll-view scroll-y="true" style="height:{{scrollYHeight- 45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+        <!-- <view wx:if='{{isredbagempty}}' class="body" style="height: 94vh;">
+            <image src="../../img/kaquan.png" style="width: 40vw; margin-top:30vh; margin-bottom: 2vh; border: 1px dashed black;" mode="widthFix"></image>
+            <view style="color:#B0B0B0">暂未获得该礼品哦～</view>
+        </view> -->
+
+        <view catchtouchmove="preventTouchMove" class="alert-mask" wx:if="{{showModal}}"></view>
+        <view class="modalDlg" wx:if="{{showModal}}">
+            <view class="bigTitle" style="margin-top: 4vh; margin-bottom: 1.5vh; font-size: 14px; font-weight: bold; color:#666666">您的序列号为：KSSA65</view>
+            <view class="title">
+                <button class="copynumber" bindtap="taptocopy">
+                    <view style="font-size: 15px; color:white">
+                        复制序列号</view>
+                </button>
+            </view>
+            <view class="paragraph">
+                <view class="modaltitle">使用说明</view>
+                <view class="modaltext">
+                    <view class="item">· 复制序列号</view>
+                    <view class="item">· 进入微信发红包界面</view>
+                    <view class="item">· 点击红包封面</view>
+                    <view class="item">· 点击添加按钮后，输入序列号即可领取</view>
+                </view>
+            </view>
+            <image class="hide-btn" bindtap="hideMask" src="../../img/close.png" mode="widthFix"></image>
+        </view>
+        <scroll-view wx:if='{{isredbagempty}}' scroll-y="true" style="height:{{scrollYHeight- 45}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
             <view style="padding-top:2vh;"></view>
             <view class="modules-scroll-view">
-                <view class="title">
+                <!-- <view class="title">
                     <button class="usekeybutton">
                         <view style="padding-right: 1vw; font-size: 12px; color:#C99B3A">
                             钥匙*</view>
@@ -94,13 +127,13 @@
                         EZ BAG系列</view>
                     <view style="padding-left: 10vw; font-size: 10px; color:#666666">
                         -</view>
-                </view>
-
+                </view> -->
+                <view style="height: 7vh;"></view>
                 <view class="title">
                     <button class="redcard" id="{{itemName.image}}" style="background-image: url(../../img/mainredpacket.jpg); background-size: 100% 100%;">
                     </button>
                 </view>
-
+                <view style="height: 2vh;"></view>
                 <view class="title">
                     <button class="serialbutton" bindtap="toserial">
                         <view style="font-size: 12px; color:white">
@@ -113,7 +146,7 @@
     </swiper-item>
 
     <swiper-item>
-        <view class="body" style="height: 94vh;">
+        <view wx:if='{{isticketempty}}' class="body" style="height: 94vh;">
             <image src="../../img/kaquan.png" style="width: 40vw; margin-top:30vh; margin-bottom: 2vh; border: 1px dashed black;" mode="widthFix"></image>
             <view style="color:#B0B0B0">暂未获得该礼品哦～</view>
         </view>

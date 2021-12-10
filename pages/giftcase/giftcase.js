@@ -14,6 +14,7 @@ Page({
         currentTab: 0,
 
         // 爱的密语
+        isscrectempty: true,
         showdatalove: [],
         hasMore: true, //列表是否有数据未加载
         page: 0,
@@ -22,12 +23,17 @@ Page({
         imglist: [],
 
         // 表情包
+        ismemeempty: true,
         memeimglist: null,
         showdatameme: [],
         memeimglist: [],
         // 红包
-
+        isredbagempty: true,
+        showModal: false,
+        showdataredbag: [],
         // 卡券
+        isticketempty: true,
+        showdataticket: [],
     },
     // 爱的密语
     bindscroll: function (e) {
@@ -103,6 +109,14 @@ Page({
                 if (res.data.res != 0) {
                     // console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
+                    if(res.data.data.length == 0){
+                        this.setData({
+                            isscrectempty: true
+                        })
+                    }else{
+                        this.setData({
+                            isscrectempty: false
+                        })     
                     // console.log("服务器返回请求成功")
                     let showdatalove = res.data.data || [];
                     if (showdatalove.length == 0) {
@@ -133,6 +147,7 @@ Page({
                 if (cb) {
                     cb()
                 }
+            }
             },
             fail: (res) => {
                 console.log('submit fail'); //API请求失败
@@ -171,10 +186,32 @@ Page({
         })
     },
     // 红包
-    toserial: function () {
-        wx.navigateTo({
-            url: '/pages/unimeme/unimeme',
+    hideMask: function () {
+        this.setData({
+            showModal: false
         })
+    },
+    toserial: function () {
+        this.setData({
+            showModal: true
+        })
+    },
+    taptocopy: function(){
+        wx.setClipboardData({
+            data: 'hello111',//要复制的数据
+            success (res) {
+                wx.showToast({
+                    title: '序列码已复制',
+                    icon: 'success',
+                    duration: 2000//持续的时间
+                  })
+            //   wx.getClipboardData({
+            //     success (res) {
+            //       console.log(res.data) // data
+            //     }
+            //   })
+            }
+          })
     },
     // 顶部导航栏
     swichNav: function (e) {
@@ -231,9 +268,15 @@ Page({
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
                     console.log("服务器返回请求成功")
-                    that.setData({
-                        showdatameme: res.data.data
-                    })
+                    if(res.data.data.length == 0){
+                        that.setData({
+                            ismemeempty: true
+                        })
+                    }else{
+                        that.setData({
+                            ismemeempty: false,
+                            showdatameme: res.data.data
+                        })
                     console.log(that.data.showdatameme)
 
                     let tmpimglist = [];
@@ -249,7 +292,7 @@ Page({
                         });
                         console.log(that.data.memeimglist)
                 }
-
+            }
             },
             fail: function (res) {
                 console.log('submit fail'); //API请求失败
@@ -281,9 +324,17 @@ Page({
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
                     console.log("服务器返回请求成功")
-                    that.setData({
-                        // showdatameme: res.data.data
-                    })
+                    if(res.data.data.length == 0){
+                        that.setData({
+                            // showdata: res.data.data
+                            isredbagempty: true
+                        })
+                    }else{
+                        that.setData({
+                            // showdata: res.data.data
+                            isredbagempty: false
+                        })
+                    }
                     // console.log(that.data.showdatameme)
                 }
 
@@ -318,9 +369,17 @@ Page({
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
                     console.log("服务器返回请求成功")
-                    that.setData({
-                        // showdatameme: res.data.data
-                    })
+                    if(res.data.data.length == 0){
+                        that.setData({
+                            // showdata: res.data.data
+                            isticketempty: true
+                        })
+                    }else{
+                        that.setData({
+                            // showdata: res.data.data
+                            isticketempty: false
+                        })
+                    }
                     // console.log(that.data.showdatameme)
                 }
 
