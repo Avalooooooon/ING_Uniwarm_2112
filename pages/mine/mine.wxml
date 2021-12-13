@@ -3,7 +3,7 @@
   <view class="head">
     <!-- 未授权 -->
     <view wx:if="{{!hasUserInfo}}" class="result">
-      <button bindtap="getUserProfile">请登录</button>
+      <button bindtap="getUserProfile" style="font-size: 16px;">请登录</button>
     </view>
 
     <!-- 已授权 -->
