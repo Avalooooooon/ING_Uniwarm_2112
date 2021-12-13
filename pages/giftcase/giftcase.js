@@ -334,7 +334,7 @@ Page({
                             isredbagempty: false
                         })
                     }
-                    // console.log(that.data.showdatameme)
+                    console.log(that.data.showdataredbag)
                 }
 
             },

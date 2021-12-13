@@ -51,7 +51,7 @@ Page({
         setTimeout(
             () => {
                 //下面应该是page+1
-                this.fetchList(page, () => {
+                this.fetchList(page+1, () => {
                     loadingMore = false;
                 })
             }, 333
