@@ -23,7 +23,7 @@
               <image class="lock" wx:if="{{itemName.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix">
               </image>
             </button>
-            <view class="interval"></view>
+            <!-- <view class="interval"></view> -->
           </block>
         </view>
 

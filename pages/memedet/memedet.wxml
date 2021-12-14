@@ -21,7 +21,7 @@
                 style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemName.image}}">
                 <image class="lock" wx:if="{{itemNameshow.locked==='yes'}}" src="../../img/home.jpg" mode="widthFix"></image>
               </button>
-              <view class="interval"></view>
+              <!-- <view class="interval"></view> -->
             </block>
           </view>
 
