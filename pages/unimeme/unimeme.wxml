@@ -62,7 +62,6 @@
               <button class="card" id="{{itemNameshow.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}" bindtap="preview">
                 <image class="lock" wx:if="{{itemNameshow.locked==='yes'}}" src="../../img/tounlock.png" mode="widthFix"></image>
               </button>
-              <view class="interval"></view>
             </block>
           </view>
 

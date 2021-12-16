@@ -22,16 +22,16 @@
         
         <view class="doublecard">
           <button class="half" bindtap="toMeme" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/sticker.png');">
-          普通表情包</button>
+          微信表情包</button>
           <view class="interval-row"></view>
           <button class="half" bindtap="toUnimeme" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/lele.png');">
-          专属表情包</button>
+          智能乐乐表情包</button>
         </view>
         <view class="interval-col"></view>
 
-        <button class="card" bindtap="togame" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/game.png');">
+        <!-- <button class="card" bindtap="togame" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/game.png');">
         游戏</button>
-        <view class="interval-col"></view>
+        <view class="interval-col"></view> -->
 
         <view class="doublecard">
           <button class="half" bindtap="towallpaper" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/home/wallpaper.png');">

@@ -33,7 +33,7 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-    justify-content: space-between;
+  justify-content: space-between;
   flex-direction: row;
   margin-bottom: 4.5vh;
 }
@@ -48,15 +48,12 @@ image {
   width: 40vw;
 }
 
-.interval {
-  width: 0.5vmin;
-}
-
 .card {
   height: 33vw;
   width: 33vw !important;
   border-radius: 0px;
-    margin: 0px !important;
+  /* margin: 0px !important; */
+  margin-bottom: 0.5vmin;
 
   display: flex;
   justify-content: center;

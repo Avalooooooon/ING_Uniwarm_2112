@@ -1,71 +1,68 @@
 /* pages/memedet/memedet.wxss */
-  .modules-scroll-view {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .body {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .box {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .head {
-    margin-top: 2vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 3.1vh;
-  }
-  
-  .title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-grow: 1;
-  }
-  
-  
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-bottom: 4.5vh;
-  }
-  
-  button {
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  image {
-    width: 40vw;
-  }
-  
-  .interval {
-    width: 0.5vmin;
-  }
-  
-  .card {
-    height: 33vw;
-    width: 33vw !important;
-    border-radius: 0px;
-    margin: 0px !important;
-  
-    display: flex;
-    justify-content: center;
-    /**主轴方向居中**/
-    align-items: center;
-    /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
-    padding: 0vw;
-  }
-  .lock{
-    z-index: 100;
-    width: 10vw;
-  }
+.modules-scroll-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 3.1vh;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 4.5vh;
+}
+
+button {
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+image {
+  width: 40vw;
+}
+
+.card {
+  height: 33vw;
+  width: 33vw !important;
+  border-radius: 0px;
+  /* margin: 0px !important; */
+  margin-bottom: 0.5vmin;
+
+  display: flex;
+  justify-content: center;
+  /**主轴方向居中**/
+  align-items: center;
+  /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
+  padding: 0vw;
+}
+
+.lock {
+  z-index: 100;
+  width: 10vw;
+}

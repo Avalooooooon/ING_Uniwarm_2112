@@ -61,7 +61,6 @@
             <block wx:for-items="{{itemName.show}}" wx:for-item="itemNameshow" wx:for-index="id">
               <button class="card" id="{{itemNameshow.image}}" style="background-color:white; background-image: url('http://www.bizspace.cn:8690{{itemNameshow.image}}')" bindtap="preview">
               </button>
-              <view class="interval"></view>
             </block>
           </view>
 
