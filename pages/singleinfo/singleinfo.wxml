@@ -9,7 +9,7 @@
         </swiper-item>
       </block>
     </swiper>
-    <view class="threed" bindtap="tosinglethreed">
+    <view hidden="{{threedhidden}}" class="threed" bindtap="tosinglethreed">
       <view style="padding-right:9vw; font-size: 15px; font-weight: bold; color:#000000">
         3D效果</view>
     </view>
@@ -30,11 +30,11 @@
   </view>
 
   <view class="content">
-    <view class="modaltext">
+    <view class="modaltext" hidden="{{!detailinfo.size}}">
       <view class="item">尺码：</view>
       <view class="item">{{detailinfo.size}}</view>
     </view>
-    <view class="modaltext">
+    <view class="modaltext" hidden="{{!detailinfo.origin}}">
       <view class="item">产地：</view>
       <view class="item">{{detailinfo.origin}}</view>
     </view>
@@ -69,11 +69,11 @@
 </view>
 
 <view class="content">
-  <view class="modaltext">
+  <view class="modaltext" hidden="{{!detailinfo.size}}">
     <view class="item">size：</view>
     <view class="item">{{detailinfo.size}}</view>
   </view>
-  <view class="modaltext">
+  <view class="modaltext" hidden="{{!detailinfo.origin}}">
     <view class="item">origin：</view>
     <view class="item">{{detailinfo.origin}}</view>
   </view>

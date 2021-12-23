@@ -27,6 +27,15 @@ Page({
             url: '/pages/discoverydethug/discoverydethug',
         })
     },
+    todiscoverydetjew: function (e) {
+        var newsid=e.currentTarget.id;
+        var app=getApp(); //获取全局对象
+        app.requestNewsid=newsid; // 设置全局的请求访问时传递的参数
+        // console.log(newsid);
+        wx.navigateTo({
+            url: '/pages/discoverydetjew/discoverydetjew',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -52,13 +61,11 @@ Page({
             //看实际的接口文档，在返回数据中会有关于错误的说明，一般通过一个数字类型的错误码进行标识。
             //下面的是对于第一种：API
             success: function (res) {
-                console.log('submit success');
-                console.log(res.data) //res.data是服务器给的所有数据，打印出来的是Object。例子：如果是要电话，格式应为我res.data.number
+                // console.log(res.data) //res.data是服务器给的所有数据，打印出来的是Object。例子：如果是要电话，格式应为我res.data.number
 
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
-                    console.log("服务器返回请求成功")
                     that.setData({
                         showdata: res.data.lists
                     })
@@ -70,7 +77,6 @@ Page({
                 console.log('submit fail'); //API请求失败
             },
             complete: function (res) {
-                console.log('submit complete');
             }
         })
     },

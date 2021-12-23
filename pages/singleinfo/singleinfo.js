@@ -6,6 +6,7 @@ Page({
     data: {
         name: '',
         threedurl: '',
+        threedhidden: false,
 
         skulist: {},
         currentid: '',
@@ -80,12 +81,12 @@ Page({
             success: function (res) {
                 res.data = JSON.parse(that.JTO(res.data));
                 // console.log('submit success');
-                // console.log(res.data);
+                console.log(res.data);
 
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
-                    console.log("服务器返回请求成功")
+                    // console.log("服务器返回请求成功")
                     that.setData({
                         name: res.data.title,
                         threedurl: res.data.url_3d,
@@ -93,6 +94,11 @@ Page({
                         detailinfo: res.data.s_attr,
                         swiperimage: res.data.images,
                     })
+                    if(that.data.threedurl == ''){
+                        that.setData({
+                            threedhidden: true
+                        })
+                    }
                     // console.log(that.data.detailinfo);
                     // console.log(that.data.swiperimage);
                     // 替换产地
@@ -120,11 +126,15 @@ Page({
                         detailinfo:tempdetailinfo
                     })
                     // console.log(that.data.skulist);
-                    // 替换丑蓝色
+                    // 替换丑蓝色 金色 银色
                     let tempskulist=that.data.skulist;
                     for(var i=0;i<that.data.skulist.length;i++){
                         if(that.data.skulist[i].d_attr.color==="blue"){
                             tempskulist[i].d_attr.color="#404563"
+                        }else if(that.data.skulist[i].d_attr.color==="silver"){
+                            tempskulist[i].d_attr.color="#FFFFFF"
+                        }else if(that.data.skulist[i].d_attr.color==="golden"){
+                            tempskulist[i].d_attr.color="#000000"
                         }
                     }
                     that.setData({
@@ -157,18 +167,17 @@ Page({
 
             success: function (res) {
                 // res.data = JSON.parse(that.JTO(res.data));
-                console.log('submit success');
-                console.log(res.data);
-                console.log(res.data.data);
+                // console.log('submit success');
+                // console.log(res.data);
 
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
-                    console.log("服务器返回请求成功")
+                    // console.log("服务器返回请求成功")
                     that.setData({
                         falsemodelimage: res.data.data,
                     })
-                    console.log(that.data.falsemodelimage);
+                    // console.log(that.data.falsemodelimage);
                     // 改modalimage的链接，加上 http://www.bizspace.cn:8690
                     var tempmodelimage = that.data.falsemodelimage
                     for(var i=0;i<that.data.falsemodelimage.length;i++){
@@ -177,7 +186,7 @@ Page({
                     that.setData({
                         modelimage: tempmodelimage,
                     })
-                    console.log(that.data.modelimage);
+                    // console.log(that.data.modelimage);
                 }
 
             },
@@ -185,7 +194,7 @@ Page({
                 console.log('submit fail'); //API请求失败
             },
             complete: function (res) {
-                console.log('submit complete');
+                // console.log('submit complete');
             }
         })
         //获取推荐列表
@@ -194,7 +203,8 @@ Page({
             data: {
                 bizid: 'uniwarm',
                 uni_id:'1',
-                user_id: wx.getStorageSync('userid'),
+                // user_id: wx.getStorageSync('userid'),
+                user_id:'',
                 language: 'ch',
                 region: 'china',
                 page:'0',
@@ -204,19 +214,18 @@ Page({
             dataType: "text",
 
             success: function (res) {
-                console.log(res.data);
                 res.data = JSON.parse(that.JTO(res.data));
-                console.log('submit success');
-                console.log(res.data);
+                // console.log('submit success');
+                // console.log(res.data);
 
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
-                    console.log("服务器返回请求成功")
+                    // console.log("服务器返回请求成功")
                     that.setData({
                         showdata: res.data.data
                     })
-                    console.log(that.data.showdata)
+                    // console.log(that.data.showdata)
                 }
 
             },
@@ -224,7 +233,7 @@ Page({
                 console.log('submit fail'); //API请求失败
             },
             complete: function (res) {
-                console.log('submit complete');
+                // console.log('submit complete');
             }
         })
     },
@@ -233,7 +242,7 @@ Page({
      */
     onLoad: function (options) {
         var defaultitemid = getApp().requestitemid; //拿到discoverydetbag传递的id，是默认颜色
-        console.log(defaultitemid);
+        // console.log(defaultitemid);
         if (this.data.tag) {
             this.setData({
                 currentid: defaultitemid

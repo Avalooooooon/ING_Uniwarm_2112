@@ -52,15 +52,15 @@ Page({
             method: "get", 
             header: { },
             success: function (res) {
-                console.log(res.data);
+                // console.log(res.data);
                 res.data=JSON.parse(that.JTO(res.data));
-                console.log('submit success');
-                console.log(res.data); //res.data是服务器给的所有数据，打印出来的是Object。例子：如果是要电话，格式应为我res.data.number
-                // res.data.data=that.handleResData(res.data.data);
+                // console.log('submit success');
+                // console.log(res.data); //res.data是服务器给的所有数据，打印出来的是Object。例子：如果是要电话，格式应为我res.data.number
+
                 if (res.data.res != 0) {
                     console.log("服务器返回请求不成功，出现某种问题，需要处理")
                 } else if (res.data.res == 0) {
-                    console.log("服务器返回请求成功")
+                    // console.log("服务器返回请求成功")
                     that.setData({
                         showdata: res.data.data
                     })

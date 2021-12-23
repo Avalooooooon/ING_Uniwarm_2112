@@ -1,3 +1,4 @@
+// pages/discoverydetjew/discoverydetjew.js
 // pages/discoverydetbag/discoverydetbag.js
 Page({
 
@@ -16,17 +17,17 @@ Page({
     
         return str;
       },
-    tobagorigin:function (e){
+      tojeworigin:function (e){
         wx.navigateTo({
-            url: '/pages/bagorigin/bagorigin',
+            url: '/pages/jeworigin/jeworigin',
         })
     },
     tosingleinfo: function (e) {
-        console.log(e);
+        // console.log(e);
         var itemid=e.currentTarget.id;
         var app=getApp(); //获取全局对象
         app.requestitemid=itemid; // 设置全局的请求访问时传递的参数
-        console.log(itemid);
+        // console.log(itemid);
         wx.navigateTo({
             url: '/pages/singleinfo/singleinfo',
         })
@@ -54,7 +55,7 @@ Page({
                 language: 'ch',
                 region:'china',
                 category1:'1',
-                category2:'2',
+                category2:'8',
                 category3:'0',
                 page: '0', 
             },

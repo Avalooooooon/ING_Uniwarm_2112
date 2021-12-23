@@ -2,12 +2,17 @@
     <view class="news-scroll-view">
             <view class="box">
                 <button class="card" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/product/ezbag_enter.png');" bindtap="todiscoverydetbag">
-                  <view class="text">EZ BAG系列</view>
+                  <view class="text">EZ BAG</view>
+                </button>          
+            </view>
+            <view hidden="true" class="box">
+                <button class="card" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/product/lovehug_enter.png');" bindtap="todiscoverydethug">
+                  <view class="text">Love Hug</view>
                 </button>          
             </view>
             <view class="box">
-                <button class="card" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/product/lovehug_enter.png');" bindtap="todiscoverydethug">
-                  <view class="text">爱的抱抱系列</view>
+                <button class="card" style="background-image: url('https://www.bizspace.cn/appsrc/biz/uniwarm/wechatweb/static/product/jewelry_enter.png');" bindtap="todiscoverydetjew">
+                  <view class="text">珠宝</view>
                 </button>          
             </view>
     </view>
