@@ -43,8 +43,8 @@
   
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: center;
 
     background-color: white;
     /* border: 1px solid rgba(128, 100, 30, 0.61); */
@@ -54,15 +54,15 @@
 .text {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     /**主轴方向居中**/
-    align-items: flex-end;
+    align-items: center;
     /**交叉轴方向居中，这里主轴水平，则交叉轴为竖直**/
 
-    margin-top: 22vh;
-    margin-bottom: 2.5vh;
+    width:44.5vw !important;
+    margin-bottom: 1.5vh;
     color: #000000;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 button {

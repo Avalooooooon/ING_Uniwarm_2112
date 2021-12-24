@@ -13,9 +13,9 @@
     <view class="news-scroll-view">
         <block wx:for-items="{{showdata}}" wx:for-item="itemName" wx:for-index="id">
             <view class="box">
-                <button class="card" id="{{itemName.id}}" style="background-image: url('{{itemName.image}}'); background-size: 100%; background-repeat: no-repeat; background-position:center;" bindtap="tosingleinfo">
+                <button class="card" id="{{itemName.id}}" style="background-image: url('{{itemName.image}}'); background-size: 100%; background-repeat: no-repeat; background-position:top;" bindtap="tosingleinfo">
                   <!-- <button class="card" id="{{itemName.id}}" style="background-image: url('{{itemName.image}}'); background-size: 80% 80%; background-repeat: no-repeat; background-position:center;" bindtap="todetailimages"> -->
-                  <!-- <view class="text">{{itemName.title}}</view> -->
+                  <view class="text">{{itemName.title}}</view>
                 </button>          
             </view>
         </block>
